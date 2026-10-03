@@ -1,11 +1,12 @@
 name: Screenshots
 
+# Run by hand from the Actions tab. It captures each screen in the simulator and commits small
+# JPEGs to docs/screenshots on the branch it ran on.
 on:
-  push:
-    paths:
-      - "ios/**"
-      - ".github/workflows/screenshots.yml"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 concurrency:
   group: shots-${{ github.ref }}
@@ -96,22 +97,14 @@ jobs:
           name: screenshots
           path: small
 
-  # The artifact store isn't reachable from every review environment, so each screenshot is also
-  # printed as base64 in its own small job log.
-  print:
-    name: Print ${{ matrix.shot }}
-    needs: shots
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        shot: [light-today, light-habits, light-journey, light-wisdom, light-sankalpa, light-review, light-edit, light-timer, dark-today, dark-journey, dark-review, light-onboarding]
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: screenshots
-          path: small
-      - name: Print
+      - name: Commit screenshots
         run: |
-          echo "BEGIN-${{ matrix.shot }}"
-          base64 -w 76 "small/${{ matrix.shot }}.jpg"
-          echo "END-${{ matrix.shot }}"
+          mkdir -p docs/screenshots
+          rm -f docs/screenshots/*.jpg
+          cp small/*.jpg docs/screenshots/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/screenshots
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Update app screenshots"
+          git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
