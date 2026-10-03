@@ -60,7 +60,7 @@ struct QuoteBlock: View {
                 .font(.quote(size))
                 .foregroundStyle(Palette.ink)
                 .lineLimit(lineLimit)
-                .fixedSize(horizontal: false, vertical: lineLimit == nil)
+                .fixedSize(horizontal: false, vertical: true)
             Text("— \(quote.cite)")
                 .font(.footnote.weight(.medium))
                 .foregroundStyle(Palette.ink2)
