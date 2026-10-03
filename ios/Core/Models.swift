@@ -11,9 +11,9 @@ public enum HabitKind: String, Codable, CaseIterable, Sendable {
     case quit
 }
 
-/// Habit inks, named after things from an Indian home and a Stoic's marble.
+/// Habit inks, named after things from an Indian home and a Stoic's graphite.
 public enum HabitColor: String, Codable, CaseIterable, Sendable {
-    case saffron, kumkum, turmeric, peacock, tulsi, lotus, indigo, marble
+    case orange, red, yellow, teal, green, pink, indigo, graphite
 }
 
 public enum Tradition: String, Codable, CaseIterable, Sendable {
@@ -72,7 +72,7 @@ public struct Habit: Codable, Hashable, Identifiable, Sendable {
     public var order: Int
 
     public init(
-        id: UUID = UUID(), name: String, symbol: String = "sparkles", color: HabitColor = .saffron,
+        id: UUID = UUID(), name: String, symbol: String = "sparkles", color: HabitColor = .orange,
         kind: HabitKind = .check, weekdays: [Int] = Array(1...7), slots: [HabitSlot] = [],
         target: Int = 1, unit: String = "", cue: String = "", place: String = "", identity: String = "",
         minimum: String = "", treat: String = "", createdOn: DayKey = .today(), archived: Bool = false, order: Int = 0
@@ -105,7 +105,7 @@ public struct Habit: Codable, Hashable, Identifiable, Sendable {
         id = try c.decode(UUID.self, forKey: .id)
         name = c.value(.name, default: "Untitled habit")
         symbol = c.value(.symbol, default: "sparkles")
-        color = c.value(.color, default: .saffron)
+        color = c.value(.color, default: .orange)
         kind = c.value(.kind, default: .check)
         let days: [Int] = c.value(.weekdays, default: Array(1...7))
         let valid = Array(Set(days.filter { (1...7).contains($0) })).sorted()

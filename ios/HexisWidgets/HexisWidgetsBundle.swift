@@ -5,7 +5,7 @@ import WidgetKit
 struct HexisWidgetsBundle: WidgetBundle {
     var body: some Widget {
         UpNextWidget()
-        LampsWidget()
+        TodayWidget()
         LockScreenWidget()
         TimerLiveActivityWidget()
     }
@@ -117,7 +117,7 @@ struct UpNextWidget: Widget {
                 .containerBackground(for: .widget) { SkyBackground(date: entry.date) }
         }
         .configurationDisplayName("Up next")
-        .description("Your next habit, with a button to light its lamp.")
+        .description("Your next habit, with a button to mark it done.")
         .supportedFamilies([.systemSmall])
     }
 }
@@ -137,7 +137,7 @@ struct UpNextWidgetView: View {
                 }
                 Spacer(minLength: 0)
                 Image(systemName: habit.symbol).font(.title3)
-                Text(habit.name).font(.serif(17, weight: .bold)).lineLimit(2).minimumScaleFactor(0.8)
+                Text(habit.name).font(.display(17, weight: .bold)).lineLimit(2).minimumScaleFactor(0.8)
                 Text(next.time?.displayText ?? "Any time").font(.caption).opacity(0.8)
                 ItemActionButton(item: next, habit: habit) {
                     Text(actionTitle(next, habit))
@@ -151,15 +151,15 @@ struct UpNextWidgetView: View {
             } else if entry.summary.isComplete {
                 Spacer(minLength: 0)
                 HStack(spacing: -6) {
-                    ForEach(0..<3, id: \.self) { i in DiyaView(color: HabitColor.allCases[i * 2].color, glow: 1, size: 34, flicker: false) }
+                    DoneRow(count: 3, size: 30, animated: false)
                 }
-                Text("All lamps lit").font(.serif(17, weight: .bold))
+                Text("All done").font(.display(17, weight: .bold))
                 Text("\(entry.summary.total) of \(entry.summary.total) today").font(.caption).opacity(0.8)
                 Spacer(minLength: 0)
             } else {
                 Spacer(minLength: 0)
-                DiyaView(color: Palette.saffron, glow: 0, size: 36, flicker: false)
-                Text(entry.hasHabits ? "Nothing scheduled now" : "Add a habit in Hexis").font(.serif(15, weight: .semibold))
+                HabitMark(color: Palette.accent, symbol: "checkmark", state: .open(progress: 0), size: 36, animated: false)
+                Text(entry.hasHabits ? "Nothing scheduled now" : "Add a habit in Hexis").font(.display(15, weight: .semibold))
                 Spacer(minLength: 0)
             }
         }
@@ -183,27 +183,27 @@ struct UpNextWidgetView: View {
     }
 }
 
-// MARK: Today's lamps (medium)
+// MARK: Today (medium)
 
-struct LampsWidget: Widget {
+struct TodayWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "HexisLamps", provider: HexisProvider()) { entry in
-            LampsWidgetView(entry: entry)
+        StaticConfiguration(kind: "HexisToday", provider: HexisProvider()) { entry in
+            TodayWidgetView(entry: entry)
                 .containerBackground(for: .widget) { SkyBackground(date: entry.date) }
         }
-        .configurationDisplayName("Today's lamps")
-        .description("Every habit for today. Tap a lamp to light it.")
+        .configurationDisplayName("Today")
+        .description("Every habit for today. Tap one to mark it done.")
         .supportedFamilies([.systemMedium])
     }
 }
 
-struct LampsWidgetView: View {
+struct TodayWidgetView: View {
     var entry: HexisEntry
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .firstTextBaseline) {
-                Text("Today").font(.serif(18, weight: .bold))
+                Text("Today").font(.display(18, weight: .bold))
                 Text(entry.day.formatted("EEE d MMM")).font(.caption).opacity(0.75)
                 Spacer()
                 Text("\(entry.summary.done)/\(entry.summary.total) lit").font(.caption.weight(.bold))
@@ -221,7 +221,7 @@ struct LampsWidgetView: View {
                         if let habit = entry.habit(item) {
                             ItemActionButton(item: item, habit: habit) {
                                 VStack(spacing: 3) {
-                                    DiyaView(color: habit.color.color, glow: item.done ? 1 : 0, size: 38, flicker: false)
+                                    HabitMark(color: habit.color.color, symbol: habit.symbol, state: item.done ? .done : .open(progress: item.kind == .count ? Double(item.amount) / Double(max(1, item.target)) : 0), size: 36, doneSymbol: item.kind == .quit ? habit.symbol : "checkmark", animated: false)
                                     Text(habit.name).font(.system(size: 10, weight: .semibold)).lineLimit(1)
                                     Text(item.kind == .count ? "\(item.amount)/\(item.target)" : (item.time?.displayText ?? "Any"))
                                         .font(.system(size: 9)).opacity(0.75)
@@ -233,7 +233,7 @@ struct LampsWidgetView: View {
                     }
                 }
                 Spacer(minLength: 0)
-                Text("“\(entry.quote.text)”").font(.serif(11, weight: .regular)).lineLimit(1).opacity(0.85)
+                Text("“\(entry.quote.text)”").font(.quote(11)).lineLimit(1).opacity(0.85)
             }
         }
         .skyForeground(entry.date)
@@ -249,7 +249,7 @@ struct LockScreenWidget: Widget {
                 .containerBackground(for: .widget) { Color.clear }
         }
         .configurationDisplayName("Hexis")
-        .description("Lamps lit today and what's up next.")
+        .description("How many habits are done today and what's up next.")
         .supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
 }
@@ -273,13 +273,13 @@ struct LockScreenWidgetView: View {
                     Text("Up next · \(next.time?.displayText ?? "today")").font(.caption2.weight(.semibold))
                     Text(habit.name).font(.headline).lineLimit(1)
                 } else {
-                    Text(entry.summary.isComplete ? "All lamps lit" : "Hexis").font(.headline)
+                    Text(entry.summary.isComplete ? "All done" : "Hexis").font(.headline)
                 }
-                Text("\(entry.summary.done) of \(entry.summary.total) lamps lit").font(.caption2)
+                Text("\(entry.summary.done) of \(entry.summary.total) done").font(.caption2)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         default:
-            Text("\(entry.summary.done) of \(entry.summary.total) lamps lit")
+            Text("\(entry.summary.done) of \(entry.summary.total) done")
         }
     }
 }
@@ -313,7 +313,7 @@ struct TimerLiveActivityWidget: Widget {
             } compactTrailing: {
                 TimerText(state: context.state).monospacedDigit().frame(maxWidth: 52)
             } minimal: {
-                Image(systemName: "flame.fill").foregroundStyle(Palette.flameOuter)
+                Image(systemName: "timer").foregroundStyle(Palette.accent)
             }
         }
     }
@@ -353,7 +353,7 @@ struct TimerLockScreenView: View {
 
     var body: some View {
         HStack(spacing: 14) {
-            DiyaView(color: attributes.habitColor.color, glow: 0.6, size: 46, flicker: false)
+            HabitMark(color: attributes.habitColor.color, symbol: attributes.symbol, state: .open(progress: 0.6), size: 44, animated: false)
             VStack(alignment: .leading, spacing: 6) {
                 HStack {
                     Text(attributes.habitName).font(.headline)

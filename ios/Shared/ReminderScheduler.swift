@@ -105,7 +105,7 @@ enum ReminderScheduler {
     static func scheduleTimerEnd(habitName: String, habitID: UUID, at date: Date) async {
         let content = UNMutableNotificationContent()
         content.title = "\(habitName) complete"
-        content.body = "Your session is done. Open Hexis to see the lamp lit."
+        content.body = "Your session is done. Open Hexis to log it."
         content.sound = .default
         content.userInfo = [Key.habit: habitID.uuidString, Key.kind: "timerEnd"]
         let interval = max(1, date.timeIntervalSinceNow)

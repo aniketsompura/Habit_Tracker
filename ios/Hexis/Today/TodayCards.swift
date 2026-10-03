@@ -20,7 +20,7 @@ struct UpNextCard: View {
                     .symbolEffect(.pulse, options: .repeating, isActive: isDue)
                 VStack(alignment: .leading, spacing: 3) {
                     Eyebrow(text: "Up next · \(timing)")
-                    Text(habit.name).font(.serif(20, weight: .semibold)).foregroundStyle(Palette.ink)
+                    Text(habit.name).font(.display(20, weight: .semibold)).foregroundStyle(Palette.ink)
                     if !plan.isEmpty {
                         Text(plan).font(.footnote).foregroundStyle(Palette.ink2).lineLimit(2)
                     }
@@ -54,7 +54,7 @@ struct UpNextCard: View {
             switch habit.kind {
             case .count: return "Add one · \(item.amount)/\(item.target)"
             case .timed: return isTimerRunning ? "Return to timer" : "Start \(habit.target)-minute timer"
-            default: return "Light the lamp"
+            default: return "Mark done"
             }
         }()
         Button {
@@ -67,7 +67,7 @@ struct UpNextCard: View {
                 .background(Capsule().fill(habit.color.color))
                 .foregroundStyle(.white)
         }
-        .buttonStyle(LampPressStyle())
+        .buttonStyle(PressStyle())
     }
 }
 
@@ -89,7 +89,7 @@ struct QuoteCard: View {
                         store.toggleFavorite(quote)
                     } label: {
                         Image(systemName: store.isFavorite(quote) ? "heart.fill" : "heart")
-                            .foregroundStyle(store.isFavorite(quote) ? Palette.kumkum : Palette.ink2)
+                            .foregroundStyle(store.isFavorite(quote) ? Palette.danger : Palette.ink2)
                             .symbolEffect(.bounce, value: store.isFavorite(quote))
                             .frame(width: 32, height: 32)
                     }
@@ -110,18 +110,18 @@ struct SankalpaCard: View {
     @Environment(AppStore.self) private var store
 
     var body: some View {
-        Card(tint: record.hasSankalpa ? nil : Palette.saffron) {
+        Card(tint: record.hasSankalpa ? nil : Palette.accent) {
             if record.hasSankalpa {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 6) {
                         Eyebrow(text: "Today's Sankalpa", symbol: "sparkle")
                         if let intention = record.intention, !intention.isEmpty {
-                            Text(intention).font(.serif(18, weight: .medium)).foregroundStyle(Palette.ink)
+                            Text(intention).font(.display(18, weight: .medium)).foregroundStyle(Palette.ink)
                         }
                         if let focus {
                             Label("Non-negotiable: \(focus.name)", systemImage: "star.fill")
                                 .font(.footnote.weight(.semibold))
-                                .foregroundStyle(Palette.saffron)
+                                .foregroundStyle(Palette.accent)
                         }
                     }
                     Spacer()
@@ -131,9 +131,13 @@ struct SankalpaCard: View {
             } else {
                 Button { store.route = .sankalpa } label: {
                     HStack(spacing: 14) {
-                        DiyaView(color: Palette.saffron, glow: 0, size: 40, flicker: false)
+                        Image(systemName: "sparkles")
+                            .font(.title2)
+                            .foregroundStyle(Palette.accent)
+                            .frame(width: 44, height: 44)
+                            .background(Circle().fill(Palette.accent.opacity(0.12)))
                         VStack(alignment: .leading, spacing: 3) {
-                            Text("Set today's Sankalpa").font(.serif(19, weight: .semibold)).foregroundStyle(Palette.ink)
+                            Text("Set today's Sankalpa").font(.display(19, weight: .semibold)).foregroundStyle(Palette.ink)
                             Text("One intention and one habit that can't slip. 20 seconds.")
                                 .font(.footnote).foregroundStyle(Palette.ink2)
                         }
@@ -161,7 +165,7 @@ struct ReviewCard: View {
                         .foregroundStyle(HabitColor.indigo.color)
                         .frame(width: 44)
                     VStack(alignment: .leading, spacing: 3) {
-                        Text(reviewed ? "Day reviewed" : "Evening review").font(.serif(19, weight: .semibold)).foregroundStyle(Palette.ink)
+                        Text(reviewed ? "Day reviewed" : "Evening review").font(.display(19, weight: .semibold)).foregroundStyle(Palette.ink)
                         Text(reviewed ? "Tap to read or change your answers." : "Seneca's three questions before sleep. Two minutes.")
                             .font(.footnote).foregroundStyle(Palette.ink2)
                     }
@@ -181,7 +185,7 @@ struct NeverMissTwiceCard: View {
     var showOriginal: Bool
 
     var body: some View {
-        Card(tint: Palette.kumkum) {
+        Card(tint: Palette.danger) {
             VStack(alignment: .leading, spacing: 10) {
                 Eyebrow(text: "Never miss twice", symbol: "arrow.uturn.up")
                 Text(message)
@@ -205,7 +209,7 @@ struct FreshStartCard: View {
     var onDismiss: () -> Void
 
     var body: some View {
-        Card(tint: Palette.saffron) {
+        Card(tint: Palette.accent) {
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
                     Eyebrow(text: title, symbol: "sunrise")

@@ -81,8 +81,8 @@ public enum Backup {
     }
 
     static let chainColors: [String: HabitColor] = [
-        "cobalt": .indigo, "teal": .peacock, "plum": .lotus, "rust": .kumkum,
-        "olive": .tulsi, "rose": .lotus, "amber": .turmeric, "slate": .marble,
+        "cobalt": .indigo, "teal": .teal, "plum": .pink, "rust": .red,
+        "olive": .green, "rose": .pink, "amber": .yellow, "slate": .graphite,
     ]
 
     /// Stable UUIDs for Habit Chain ids, so importing the same file twice doesn't duplicate habits.
@@ -110,7 +110,7 @@ public enum Backup {
             let weekdays = (h.days ?? Array(0...6)).filter { (0...6).contains($0) }.map { $0 + 1 }
             habits.append(Habit(
                 id: id, name: h.name ?? "Habit", symbol: kind == .count ? "drop.fill" : "checkmark.seal",
-                color: chainColors[h.color ?? ""] ?? .saffron, kind: kind, weekdays: weekdays.isEmpty ? Array(1...7) : weekdays,
+                color: chainColors[h.color ?? ""] ?? .orange, kind: kind, weekdays: weekdays.isEmpty ? Array(1...7) : weekdays,
                 slots: [], target: target, unit: h.unit ?? "", createdOn: h.createdAt.flatMap(DayKey.init(raw:)) ?? .today(),
                 archived: h.archived ?? false, order: i))
             kinds[h.id] = (id, kind)

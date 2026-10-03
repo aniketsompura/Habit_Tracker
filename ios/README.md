@@ -2,11 +2,11 @@
 
 A native iPhone habit tracker built with SwiftUI.
 
-**The name.** *Hexis* (ἕξις) is the Greek word Epictetus uses for a habit, a settled way of being: "Every *hexis* and faculty is maintained and increased by the corresponding actions" (Discourses 2.18). The icon is a marble column of the Stoa at dawn.
+**The name.** *Hexis* (ἕξις) is the Greek word Epictetus uses for a habit, a settled way of being: "Every *hexis* and faculty is maintained and increased by the corresponding actions" (Discourses 2.18). The icon is a ring of seven segments, one for each day of the week, around a check.
 
 **How it works.**
-- Each habit is a small lamp that lights when you do it.
-- The lamps sit on a sky that follows the time of day.
+- Each habit is a ring that fills as you make progress and turns into a check when you're done.
+- Habits sit on a sky that follows the time of day.
 - Reminders arrive at each habit's preferred time.
 - Stoic and Hindu wisdom shows up at the moments it helps most.
 
@@ -14,7 +14,7 @@ A native iPhone habit tracker built with SwiftUI.
 
 **Habits**
 - Four kinds: **yes / no**, **count** (8 glasses of water), **timed** (meditate 10 minutes, with a breathing guide and a Lock Screen countdown) and **quit** (no sugar; each day counts unless you log a slip).
-- **Several times a day.** "Vitamins at 8 am and 8 pm" is two lamps, each with its own reminder.
+- **Several times a day.** "Vitamins at 8 am and 8 pm" is two check-ins, each with its own reminder.
 - **Days of the week** for each habit. Days a habit isn't scheduled never break its streak.
 
 **Reminders**
@@ -26,7 +26,7 @@ A native iPhone habit tracker built with SwiftUI.
 - **When-then plans.** "After I make coffee, I will read on the balcony." The editor builds the sentence, and reminders use it.
 - **Never miss twice.** One missed day is forgiven; two in a row break the chain. After a miss, the app says so kindly and shows a recovery quote.
 - **A minimum for hard days.** Every habit can have a tiny version that still keeps the chain.
-- **Votes and the mala.** Each kept day is a vote for who you're becoming ("212 votes for being a reader"). Votes fill a 108-bead mala.
+- **Votes and milestones.** Each kept day is a vote for who you're becoming ("212 votes for being a reader"). Milestones at 7, 21, 30, 66 and 100 votes; 66 days is the average time for a habit to feel automatic (Lally et al., 2010).
 - **Fresh starts.** Mondays, the 1st of the month and your birthday get a fresh-start card.
 - **Morning Sankalpa:** one intention, plus one habit that can't slip.
 - **Evening review:** Seneca's three questions (On Anger 3.36).
@@ -38,7 +38,7 @@ A native iPhone habit tracker built with SwiftUI.
 - Quotes are matched to moments: morning, after a miss, a long streak, an urge, the timer, a completed day.
 
 **Widgets**
-- Home screen **Up next** (small) and **Today's lamps** (medium). Both have buttons that light a lamp without opening the app.
+- Home screen **Up next** (small) and **Today** (medium). Both have buttons that mark a habit done without opening the app.
 - Lock Screen widgets.
 - A Live Activity for timed habits.
 
@@ -96,7 +96,7 @@ Hexis is built to work with a free Apple ID: reminders with their buttons, the t
 | --- | --- |
 | `Core/` | Plain Swift logic shared by the app and widgets: models, streaks, agenda, reminder planning, quotes (`Resources/quotes.json`), backup, templates. |
 | `CoreTests/` | Unit tests for `Core`. Run with `swift test --package-path ios`. |
-| `Shared/` | SwiftUI and system code used by both the app and widgets: theme, sky, the diya drawing, data file, notifications, App Intents, the timer Live Activity. |
+| `Shared/` | SwiftUI and system code used by both the app and widgets: theme, sky, the habit ring, data file, notifications, App Intents, the timer Live Activity. |
 | `Hexis/` | The app: Today, Habits, Journey, Wisdom, Settings, rituals, timer, onboarding. |
 | `HexisWidgets/` | Home screen and Lock Screen widgets and the Live Activity. |
 | `Config/` | Info.plists and entitlements. |

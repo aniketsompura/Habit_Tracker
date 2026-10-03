@@ -13,7 +13,7 @@ struct TimerView: View {
     var body: some View {
         let habit = store.habit(habitID)
         ZStack {
-            LinearGradient(colors: [Color(hex: 0x0E1230), Color(hex: 0x231B3D), (habit?.color.color ?? Palette.saffron).opacity(0.55)],
+            LinearGradient(colors: [Color(hex: 0x0E1230), Color(hex: 0x231B3D), (habit?.color.color ?? Palette.accent).opacity(0.55)],
                            startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             if let habit {
@@ -64,13 +64,13 @@ struct TimerView: View {
         let quote = store.quote(.timer)
         return VStack(spacing: 28) {
             Spacer()
-            DiyaView(color: habit.color.color, glow: 0, size: 110, flicker: false)
+            HabitMark(color: habit.color.color, symbol: habit.symbol, state: .open(progress: 0), size: 110, animated: false)
             VStack(spacing: 6) {
-                Text(habit.name).font(.serif(32, weight: .bold))
+                Text(habit.name).font(.display(32, weight: .bold))
                 Text("\(habit.target) minutes").font(.title3).opacity(0.8)
             }
             Text("“\(quote.text)”\n— \(quote.cite)")
-                .font(.serif(16, weight: .regular))
+                .font(.quote(16))
                 .multilineTextAlignment(.center)
                 .opacity(0.8)
                 .padding(.horizontal, 32)
@@ -86,7 +86,7 @@ struct TimerView: View {
                     .padding(.vertical, 16)
                     .background(Capsule().fill(habit.color.color))
             }
-            .buttonStyle(LampPressStyle())
+            .buttonStyle(PressStyle())
             .padding(.horizontal, 28)
             .padding(.bottom, 24)
         }
@@ -123,7 +123,7 @@ struct TimerView: View {
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel("\(clock(remaining)) left")
             }
-            Text(habit.name).font(.serif(24, weight: .semibold)).opacity(0.9)
+            Text(habit.name).font(.display(24, weight: .semibold)).opacity(0.9)
             Spacer()
             HStack(spacing: 14) {
                 Button {
@@ -145,7 +145,7 @@ struct TimerView: View {
                         .background(Capsule().fill(habit.color.color))
                 }
             }
-            .buttonStyle(LampPressStyle())
+            .buttonStyle(PressStyle())
             .padding(.horizontal, 24)
             Text("Finishing early still counts as your minimum.")
                 .font(.footnote)
@@ -158,11 +158,11 @@ struct TimerView: View {
         let quote = store.quote(.timer, salt: 5)
         return VStack(spacing: 24) {
             Spacer()
-            DiyaView(color: habit.color.color, glow: 1, size: 130)
+            HabitMark(color: habit.color.color, symbol: habit.symbol, state: .done, size: 130)
                 .transition(.scale.combined(with: .opacity))
-            Text("Lamp lit").font(.serif(34, weight: .bold))
+            Text("Session complete").font(.display(34, weight: .bold))
             Text("“\(quote.text)”\n— \(quote.cite)")
-                .font(.serif(16, weight: .regular))
+                .font(.quote(16))
                 .multilineTextAlignment(.center)
                 .opacity(0.85)
                 .padding(.horizontal, 32)
@@ -177,7 +177,7 @@ struct TimerView: View {
                     .padding(.vertical, 16)
                     .background(Capsule().fill(habit.color.color))
             }
-            .buttonStyle(LampPressStyle())
+            .buttonStyle(PressStyle())
             .padding(.horizontal, 28)
             .padding(.bottom, 24)
         }

@@ -18,51 +18,41 @@ extension Color {
     }
 }
 
-/// Sandalwood paper by day, temple stone by night.
+/// Neutral surfaces with one teal accent; habit colors carry the rest.
 enum Palette {
-    static let paper = Color.dynamic(light: 0xF6EFE4, dark: 0x13100E)
-    static let card = Color.dynamic(light: 0xFFFBF4, dark: 0x1E1915)
-    static let raised = Color.dynamic(light: 0xF0E6D6, dark: 0x2A221C)
-    static let ink = Color.dynamic(light: 0x2A1F16, dark: 0xF3EADF)
-    static let ink2 = Color.dynamic(light: 0x7B6A59, dark: 0xA99A88)
-    static let rule = Color.dynamic(light: 0xE6D8C3, dark: 0x352B24)
-    static let saffron = Color.dynamic(light: 0xD26A0A, dark: 0xF5A445)
-    static let onSaffron = Color.dynamic(light: 0xFFFFFF, dark: 0x1A120B)
-    static let kumkum = Color.dynamic(light: 0xB3262C, dark: 0xF07A74)
-    static let tulsi = Color.dynamic(light: 0x3F7D3A, dark: 0x8BCB7F)
+    static let paper = Color.dynamic(light: 0xF5F5F7, dark: 0x0A0A0C)
+    static let card = Color.dynamic(light: 0xFFFFFF, dark: 0x17171B)
+    static let raised = Color.dynamic(light: 0xEDEDF1, dark: 0x232329)
+    static let ink = Color.dynamic(light: 0x111114, dark: 0xF5F5F7)
+    static let ink2 = Color.dynamic(light: 0x6B6B76, dark: 0x9C9CA8)
+    static let rule = Color.dynamic(light: 0xE4E4EA, dark: 0x2A2A31)
+    static let accent = Color.dynamic(light: 0x0D9488, dark: 0x2DD4BF)
+    static let onAccent = Color.dynamic(light: 0xFFFFFF, dark: 0x04201D)
+    static let danger = Color.dynamic(light: 0xDC2626, dark: 0xF87171)
+    static let success = Color.dynamic(light: 0x16A34A, dark: 0x4ADE80)
+    /// Second stop of the brand gradient, used with `accent`.
+    static let accent2 = Color.dynamic(light: 0x4F46E5, dark: 0x818CF8)
 
-    static let flameCore = Color(hex: 0xFFF6DE)
-    static let flameMid = Color(hex: 0xFFC94F)
-    static let flameOuter = Color(hex: 0xF5881F)
-    static let ember = Color(hex: 0xE2541C)
+    static let sunCore = Color(hex: 0xFFF6DE)
+    static let sunGlow = Color(hex: 0xFFC94F)
+    static let sunEdge = Color(hex: 0xF5881F)
 }
 
 extension HabitColor {
     var color: Color {
         switch self {
-        case .saffron: return .dynamic(light: 0xD26A0A, dark: 0xF5A445)
-        case .kumkum: return .dynamic(light: 0xB3262C, dark: 0xF07A74)
-        case .turmeric: return .dynamic(light: 0xB98700, dark: 0xF2C64E)
-        case .peacock: return .dynamic(light: 0x0E6C78, dark: 0x4FC4D0)
-        case .tulsi: return .dynamic(light: 0x3F7D3A, dark: 0x8BCB7F)
-        case .lotus: return .dynamic(light: 0xBD3F76, dark: 0xF290B9)
-        case .indigo: return .dynamic(light: 0x3A3F9C, dark: 0xA3A8F6)
-        case .marble: return .dynamic(light: 0x6E6A63, dark: 0xCBC6BC)
+        case .orange: return .dynamic(light: 0xEA580C, dark: 0xFB923C)
+        case .red: return .dynamic(light: 0xDC2626, dark: 0xF87171)
+        case .yellow: return .dynamic(light: 0xCA8A04, dark: 0xFACC15)
+        case .teal: return .dynamic(light: 0x0D9488, dark: 0x2DD4BF)
+        case .green: return .dynamic(light: 0x16A34A, dark: 0x4ADE80)
+        case .pink: return .dynamic(light: 0xDB2777, dark: 0xF472B6)
+        case .indigo: return .dynamic(light: 0x4F46E5, dark: 0x818CF8)
+        case .graphite: return .dynamic(light: 0x52525B, dark: 0xA1A1AA)
         }
     }
 
-    var label: String {
-        switch self {
-        case .saffron: return "Saffron"
-        case .kumkum: return "Kumkum"
-        case .turmeric: return "Turmeric"
-        case .peacock: return "Peacock"
-        case .tulsi: return "Tulsi"
-        case .lotus: return "Lotus"
-        case .indigo: return "Indigo"
-        case .marble: return "Marble"
-        }
-    }
+    var label: String { rawValue.capitalized }
 }
 
 extension Font {
@@ -72,7 +62,7 @@ extension Font {
     static func rounded(_ size: CGFloat, weight: Font.Weight = .semibold) -> Font { .system(size: size, weight: weight, design: .rounded) }
 }
 
-/// The sky above the Today screen, shifting from Brahma muhurta indigo to dawn saffron to dusk.
+/// The sky above the Today screen, shifting from pre-dawn indigo to morning gold to dusk.
 enum Sky {
     private struct Stop { let minute: Int; let top: UInt32; let bottom: UInt32 }
 

@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// One habit at one preferred time. Tap the lamp to light it; swipe for more.
+/// One habit at one preferred time. Tap the ring to complete it; swipe for more.
 struct AgendaRow: View {
     var item: AgendaItem
     var habit: Habit
@@ -14,27 +14,34 @@ struct AgendaRow: View {
 
     @Environment(AppStore.self) private var store
 
-    private var glow: Double {
+    private var markState: MarkState {
         switch habit.kind {
-        case .quit: return item.done ? 1 : 0
-        case .count: return item.done ? 1 : (progress.minimumLogged ? 0.55 : 0)
-        default: return item.done ? 1 : (progress.minimumLogged ? 0.55 : (isTimerRunning ? 0.35 : 0))
+        case .quit:
+            return item.done ? .done : .slipped
+        case .count:
+            if item.done { return .done }
+            return progress.minimumLogged ? .minimum : .open(progress: Double(item.amount) / Double(max(1, item.target)))
+        case .check, .timed:
+            if item.done { return .done }
+            if progress.minimumLogged { return .minimum }
+            return .open(progress: isTimerRunning ? 0.5 : 0)
         }
     }
 
     var body: some View {
         HStack(spacing: 14) {
-            lampButton
+            markButton
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 6) {
                     Text(habit.name)
                         .font(.body.weight(.semibold))
                         .foregroundStyle(Palette.ink)
-                        .strikethrough(habit.kind == .quit && !item.done, color: Palette.kumkum)
+                        .strikethrough(item.done && habit.kind != .quit, color: Palette.ink2.opacity(0.6))
+                        .opacity(item.done && habit.kind != .quit ? 0.6 : 1)
                     if isFocus {
                         Image(systemName: "star.fill")
                             .font(.caption2)
-                            .foregroundStyle(Palette.saffron)
+                            .foregroundStyle(Palette.accent)
                             .accessibilityLabel("Non-negotiable today")
                     }
                 }
@@ -47,14 +54,14 @@ struct AgendaRow: View {
         .padding(.vertical, 12)
         .padding(.horizontal, 14)
         .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(Palette.card)
+                .shadow(color: .black.opacity(0.05), radius: 10, y: 3)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 18, style: .continuous)
-                        .strokeBorder(isFocus ? Palette.saffron.opacity(0.7) : Palette.rule, lineWidth: isFocus ? 1.5 : 1)
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .strokeBorder(isFocus ? Palette.accent : Palette.rule.opacity(0.6), lineWidth: isFocus ? 1.5 : 0.5)
                 )
         )
-        .opacity(item.done && habit.kind != .quit ? 0.86 : 1)
         .sensoryFeedback(.success, trigger: item.done) { old, new in !old && new }
         .sensoryFeedback(.impact(weight: .light), trigger: item.amount)
         .swipeActions(edge: .leading, allowsFullSwipe: true) { leadingActions }
@@ -68,21 +75,16 @@ struct AgendaRow: View {
 
     // MARK: Parts
 
-    private var lampButton: some View {
+    private var markButton: some View {
         Button {
             store.tap(item, on: day)
         } label: {
-            ZStack {
-                if habit.kind == .count {
-                    Ring(fraction: Double(item.amount) / Double(max(1, item.target)), color: habit.color.color, lineWidth: 3)
-                        .frame(width: 52, height: 52)
-                }
-                DiyaView(color: habit.color.color, glow: glow, size: 44, flicker: glow > 0, seed: Double(abs(item.id.hashValue % 97)))
-            }
-            .frame(width: 54, height: 54)
-            .contentShape(Circle())
+            HabitMark(color: habit.color.color, symbol: habit.symbol, state: markState, size: 48,
+                      doneSymbol: habit.kind == .quit ? habit.symbol : "checkmark")
+                .frame(width: 54, height: 54)
+                .contentShape(Circle())
         }
-        .buttonStyle(LampPressStyle())
+        .buttonStyle(PressStyle())
         .accessibilityLabel(primaryHint)
     }
 
@@ -96,7 +98,7 @@ struct AgendaRow: View {
             if stats.streak.current > 0 {
                 Label("\(stats.streak.current)", systemImage: "flame.fill")
                     .labelStyle(.titleAndIcon)
-                    .foregroundStyle(Palette.saffron)
+                    .foregroundStyle(Palette.accent)
                     .accessibilityLabel("\(stats.streak.current) day chain")
             }
             if isToday && stats.streak.atRisk && !progress.status.isKept {
@@ -104,11 +106,11 @@ struct AgendaRow: View {
                     .font(.caption2.weight(.bold))
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
-                    .background(Capsule().fill(Palette.kumkum.opacity(0.14)))
-                    .foregroundStyle(Palette.kumkum)
+                    .background(Capsule().fill(Palette.danger.opacity(0.14)))
+                    .foregroundStyle(Palette.danger)
             }
             if progress.minimumLogged && !item.done {
-                Text("Minimum kept").font(.caption2.weight(.bold)).foregroundStyle(Palette.tulsi)
+                Text("Minimum kept").font(.caption2.weight(.bold)).foregroundStyle(Palette.success)
             }
         }
         .font(.footnote)
@@ -138,20 +140,15 @@ struct AgendaRow: View {
         case .quit:
             Text(item.done ? (isToday ? "Holding" : "Clean") : "Slipped")
                 .font(.footnote.weight(.semibold))
-                .foregroundStyle(item.done ? Palette.tulsi : Palette.kumkum)
+                .foregroundStyle(item.done ? Palette.success : Palette.danger)
         case .check:
-            if item.done {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(habit.color.color)
-                    .transition(.scale.combined(with: .opacity))
-            }
+            EmptyView()
         }
     }
 
     private var primaryHint: String {
         switch habit.kind {
-        case .check: return item.done ? "Mark \(habit.name) not done" : "Light the lamp for \(habit.name)"
+        case .check: return item.done ? "Mark \(habit.name) not done" : "Mark \(habit.name) done"
         case .count: return "Add one \(habit.unitLabel.lowercased()) to \(habit.name), \(item.amount) of \(item.target)"
         case .timed: return item.done ? "Mark \(habit.name) not done" : (isToday ? "Start the \(habit.target) minute timer for \(habit.name)" : "Mark \(habit.name) done")
         case .quit: return item.done ? "Log a slip for \(habit.name)" : "Remove the slip for \(habit.name)"
@@ -178,13 +175,13 @@ struct AgendaRow: View {
     @ViewBuilder private var trailingActions: some View {
         if habit.kind == .quit {
             if item.done {
-                Button { store.slip(habit, on: day) } label: { Label("Slipped", systemImage: "drop.triangle") }.tint(Palette.kumkum)
+                Button { store.slip(habit, on: day) } label: { Label("Slipped", systemImage: "drop.triangle") }.tint(Palette.danger)
             } else {
                 Button { store.tap(item, on: day) } label: { Label("Undo slip", systemImage: "arrow.uturn.backward") }.tint(Palette.ink2)
             }
         } else {
             if !progress.isComplete && !progress.minimumLogged {
-                Button { store.logMinimum(habit, on: day) } label: { Label("Minimum", systemImage: "leaf") }.tint(Palette.tulsi)
+                Button { store.logMinimum(habit, on: day) } label: { Label("Minimum", systemImage: "leaf") }.tint(Palette.success)
             }
             if habit.kind == .count && item.amount > 0 {
                 Button { store.decrement(habit, on: day) } label: { Label("−1", systemImage: "minus") }.tint(Palette.ink2)
@@ -218,7 +215,7 @@ struct AgendaRow: View {
 }
 
 /// Presses sink slightly and spring back.
-struct LampPressStyle: ButtonStyle {
+struct PressStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .scaleEffect(configuration.isPressed ? 0.88 : 1)

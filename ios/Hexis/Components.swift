@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// A rounded card on the sandalwood background.
+/// A rounded card on the page background.
 struct Card<Content: View>: View {
     var padding: CGFloat = 16
     var tint: Color? = nil
@@ -11,11 +11,12 @@ struct Card<Content: View>: View {
             .padding(padding)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                RoundedRectangle(cornerRadius: 22, style: .continuous)
                     .fill(Palette.card)
+                    .shadow(color: .black.opacity(0.05), radius: 12, y: 4)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .strokeBorder(tint?.opacity(0.55) ?? Palette.rule, lineWidth: tint == nil ? 1 : 1.5)
+                        RoundedRectangle(cornerRadius: 22, style: .continuous)
+                            .strokeBorder(tint ?? Palette.rule.opacity(0.6), lineWidth: tint == nil ? 0.5 : 1.5)
                     )
             )
     }
@@ -46,7 +47,7 @@ struct QuoteBlock: View {
             if showOriginal, let original = quote.original {
                 Text(original)
                     .font(.system(size: size - 1, weight: .medium))
-                    .foregroundStyle(Palette.saffron)
+                    .foregroundStyle(Palette.accent)
                     .fixedSize(horizontal: false, vertical: true)
                 if let transliteration = quote.transliteration {
                     Text(transliteration)
@@ -56,7 +57,7 @@ struct QuoteBlock: View {
                 }
             }
             Text(quote.text)
-                .font(.serif(size, weight: .regular))
+                .font(.quote(size))
                 .foregroundStyle(Palette.ink)
                 .lineLimit(lineLimit)
                 .fixedSize(horizontal: false, vertical: lineLimit == nil)
@@ -78,7 +79,7 @@ struct TraditionMark: View {
             Text(tradition == .stoic ? "Stoic" : "Hindu")
         }
         .font(.caption2.weight(.bold))
-        .foregroundStyle(tradition == .stoic ? HabitColor.marble.color : Palette.saffron)
+        .foregroundStyle(tradition == .stoic ? HabitColor.graphite.color : Palette.accent)
     }
 }
 
@@ -93,7 +94,7 @@ struct ToastView: View {
                 .foregroundStyle(Palette.ink)
             if let quote = toast.quote {
                 Text("“\(quote.text)”")
-                    .font(.serif(14, weight: .regular))
+                    .font(.quote(14))
                     .foregroundStyle(Palette.ink2)
                     .lineLimit(3)
                 Text(quote.cite).font(.caption2.weight(.semibold)).foregroundStyle(Palette.ink2)

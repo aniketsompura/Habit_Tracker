@@ -13,7 +13,7 @@ struct HexisApp: App {
             RootView()
                 .environment(store)
                 .environment(timer)
-                .tint(Palette.saffron)
+                .tint(Palette.accent)
                 .onOpenURL { store.handle(url: $0) }
                 .onChange(of: scenePhase) { _, phase in
                     guard phase == .active else { return }

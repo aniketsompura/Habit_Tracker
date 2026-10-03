@@ -105,14 +105,15 @@ final class EngineTests: XCTestCase {
         XCTAssertFalse(engine.agenda(on: start.adding(3)).first!.done)
     }
 
-    func testVotesAndMala() {
+    func testVotesAndMilestones() {
         let habit = makeHabit()
         var data = AppData(habits: [habit])
         for d in 0..<110 { log(&data, habit, start.adding(d)) }
         let stats = Engine(data: data, today: start.adding(109)).stats(habit)
         XCTAssertEqual(stats.votes, 110)
-        XCTAssertEqual(stats.malas, 1)
-        XCTAssertEqual(stats.malaBeads, 2)
+        XCTAssertEqual(stats.previousMilestone, 100)
+        XCTAssertEqual(stats.nextMilestone, 200)
+        XCTAssertEqual(stats.milestoneProgress, 0.1, accuracy: 0.0001)
     }
 
     func testTimingInsightNoticesDrift() {
@@ -141,7 +142,7 @@ final class EngineTests: XCTestCase {
     func testDecodingToleratesMissingFields() throws {
         let json = #"{"habits":[{"id":"6F9619FF-8B86-D011-B42D-00C04FC964FF","name":"Walk","color":"neon"}]}"#
         let data = try AppData.makeDecoder().decode(AppData.self, from: Data(json.utf8))
-        XCTAssertEqual(data.habits.first?.color, .saffron)
+        XCTAssertEqual(data.habits.first?.color, .orange)
         XCTAssertEqual(data.habits.first?.weekdays, Array(1...7))
         XCTAssertTrue(data.preferences.morningRitual)
     }

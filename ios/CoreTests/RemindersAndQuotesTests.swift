@@ -103,7 +103,7 @@ final class BackupTests: XCTestCase {
         guard case .habitChain(let habits, let days) = try Backup.read(Data(json.utf8)) else { return XCTFail("Expected Habit Chain") }
         XCTAssertEqual(habits.map(\.kind), [.count, .check])
         XCTAssertEqual(habits[1].weekdays, [2, 4, 6])
-        XCTAssertEqual(habits[0].color, .peacock)
+        XCTAssertEqual(habits[0].color, .teal)
         XCTAssertEqual(days["2026-09-02"]?.entries.count, 1)
         XCTAssertEqual(days["2026-09-02"]?.entries.first?.amount, 6)
         XCTAssertEqual(days["2026-09-02"]?.note, "Felt good")

@@ -52,7 +52,7 @@ struct SettingsView: View {
         Section {
             switch notificationStatus {
             case .denied:
-                Label("Reminders are off in iPhone Settings.", systemImage: "bell.slash").foregroundStyle(Palette.kumkum)
+                Label("Reminders are off in iPhone Settings.", systemImage: "bell.slash").foregroundStyle(Palette.danger)
                 Button("Open iPhone Settings") {
                     if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) }
                 }
@@ -65,7 +65,7 @@ struct SettingsView: View {
                     }
                 }
             default:
-                Label("Reminders are on", systemImage: "bell.badge").foregroundStyle(Palette.tulsi)
+                Label("Reminders are on", systemImage: "bell.badge").foregroundStyle(Palette.success)
             }
             Toggle("Gentle follow-up", isOn: pref(\.followUps))
             if store.prefs.followUps {

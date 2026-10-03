@@ -67,10 +67,16 @@ public struct HabitStats: Equatable, Sendable {
     public var timing: [TimingInsight]
 
     public var rate30: Double? { scheduled30 == 0 ? nil : Double(kept30) / Double(scheduled30) }
-    /// Beads on the current 108-bead mala.
-    public var malaBeads: Int { votes % 108 }
-    /// Completed malas of 108 votes.
-    public var malas: Int { votes / 108 }
+    /// Vote counts worth marking. 66 days is the average time for a habit to feel automatic (Lally et al., 2010).
+    public static let milestones = [7, 21, 30, 66, 100, 200, 365, 500, 1000]
+
+    public var previousMilestone: Int { Self.milestones.last { $0 <= votes } ?? 0 }
+    public var nextMilestone: Int { Self.milestones.first { $0 > votes } ?? (votes / 500 + 1) * 500 }
+    /// Progress from the previous milestone to the next, 0…1.
+    public var milestoneProgress: Double {
+        let span = nextMilestone - previousMilestone
+        return span <= 0 ? 0 : Double(votes - previousMilestone) / Double(span)
+    }
 }
 
 /// Entries indexed by habit and day.

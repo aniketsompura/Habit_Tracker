@@ -83,7 +83,7 @@ struct ToastHost: View {
     }
 }
 
-/// When the last lamp of the day is lit: embers rise and a line of wisdom appears.
+/// When the last habit of the day is done: confetti falls and a line of wisdom appears.
 struct CelebrationOverlay: View {
     @Environment(AppStore.self) private var store
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -96,15 +96,11 @@ struct CelebrationOverlay: View {
                 Color.black.opacity(0.25).ignoresSafeArea()
                     .onTapGesture { withAnimation { visible = false } }
                 if !reduceMotion {
-                    EmberField(start: startedAt).ignoresSafeArea().allowsHitTesting(false)
+                    ConfettiField(start: startedAt).ignoresSafeArea().allowsHitTesting(false)
                 }
                 VStack(spacing: 14) {
-                    HStack(spacing: -4) {
-                        ForEach(0..<5, id: \.self) { i in
-                            DiyaView(color: HabitColor.allCases[(i * 3) % HabitColor.allCases.count].color, glow: 1, size: 40, seed: Double(i))
-                        }
-                    }
-                    Text("All lamps lit").font(.serif(28, weight: .bold)).foregroundStyle(Palette.ink)
+                    DoneRow(count: 5, size: 38)
+                    Text("All done for today").font(.display(28, weight: .bold)).foregroundStyle(Palette.ink)
                     QuoteBlock(quote: store.quote(.dayComplete), showOriginal: false, size: 15)
                 }
                 .padding(22)
@@ -127,28 +123,32 @@ struct CelebrationOverlay: View {
     }
 }
 
-/// Sparks drifting upward like embers from a lamp.
-struct EmberField: View {
+/// Confetti in the habit colors, falling and tumbling.
+struct ConfettiField: View {
     var start: Date
 
     var body: some View {
         TimelineView(.animation) { context in
             Canvas { ctx, size in
                 let t = context.date.timeIntervalSince(start)
-                for i in 0..<70 {
+                let colors = HabitColor.allCases.map(\.color)
+                for i in 0..<90 {
                     let seed = Double(i) * 12.9898
-                    let rx = (sin(seed) * 43758.5453).truncatingRemainder(dividingBy: 1)
-                    let speed = 70 + abs(sin(seed * 1.7)) * 160
-                    let delay = abs(sin(seed * 2.3)) * 1.2
+                    let rx = abs((sin(seed) * 43758.5453).truncatingRemainder(dividingBy: 1))
+                    let delay = abs(sin(seed * 2.3)) * 0.6
                     let life = t - delay
                     guard life > 0 else { continue }
-                    let x = size.width * abs(rx) + sin(life * 2 + seed) * 18
-                    let y = size.height + 20 - life * speed
-                    guard y > -20 else { continue }
-                    let fade = max(0, 1 - life / 3.6)
-                    let r = 1.5 + abs(sin(seed * 3.1)) * 2.5
-                    let color = i % 3 == 0 ? Palette.flameCore : (i % 3 == 1 ? Palette.flameMid : Palette.flameOuter)
-                    ctx.fill(Path(ellipseIn: CGRect(x: x, y: y, width: r * 2, height: r * 2)), with: .color(color.opacity(fade)))
+                    let speed = 260 + abs(sin(seed * 1.7)) * 320
+                    let x = size.width * rx + sin(life * 3 + seed) * 26
+                    let y = -30 + life * speed
+                    guard y < size.height + 30 else { continue }
+                    let fade = max(0, 1 - life / 3.4)
+                    let w = 6 + abs(sin(seed * 3.1)) * 6
+                    var piece = ctx
+                    piece.translateBy(x: x, y: y)
+                    piece.rotate(by: .radians(life * (2 + abs(sin(seed)) * 4) + seed))
+                    let rect = CGRect(x: -w / 2, y: -w * 0.3, width: w, height: w * 0.6)
+                    piece.fill(Path(roundedRect: rect, cornerRadius: 1.5), with: .color(colors[i % colors.count].opacity(fade)))
                 }
             }
         }

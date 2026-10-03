@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Progress: streaks, a mala of votes, a calendar map and timing insights for each habit.
+/// Progress: streaks, votes toward milestones, a calendar map and timing insights for each habit.
 struct JourneyView: View {
     @Environment(AppStore.self) private var store
 
@@ -12,8 +12,8 @@ struct JourneyView: View {
                     if habits.isEmpty {
                         Card {
                             VStack(alignment: .leading, spacing: 8) {
-                                Text("Your journey starts with one lamp").font(.serif(22, weight: .bold)).foregroundStyle(Palette.ink)
-                                Text("Add a habit and check it off for a few days. Streaks, your mala of votes and a map of every day will appear here.")
+                                Text("Your journey starts with one habit").font(.display(22, weight: .bold)).foregroundStyle(Palette.ink)
+                                Text("Add a habit and check it off for a few days. Streaks, milestones and a map of every day will appear here.")
                                     .font(.subheadline).foregroundStyle(Palette.ink2)
                             }
                         }
@@ -61,9 +61,9 @@ struct JourneyView: View {
                 Card {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(day == store.today ? "Today" : day.formatted("EEEE d MMM"))
-                            .font(.footnote.weight(.bold)).foregroundStyle(Palette.saffron)
+                            .font(.footnote.weight(.bold)).foregroundStyle(Palette.accent)
                         if let intention = record.intention, !intention.isEmpty {
-                            Text("Sankalpa: \(intention)").font(.serif(16, weight: .medium)).foregroundStyle(Palette.ink)
+                            Text("Sankalpa: \(intention)").font(.display(16, weight: .medium)).foregroundStyle(Palette.ink)
                         }
                         if let review = record.review { ReviewSummary(review: review) }
                         if let note = record.note, !note.isEmpty {
@@ -109,16 +109,16 @@ struct HabitJourneyCard: View {
             VStack(alignment: .leading, spacing: 16) {
                 HStack(spacing: 10) {
                     Image(systemName: habit.symbol).foregroundStyle(habit.color.color)
-                    Text(habit.name).font(.serif(20, weight: .semibold)).foregroundStyle(Palette.ink)
+                    Text(habit.name).font(.display(20, weight: .semibold)).foregroundStyle(Palette.ink)
                     Spacer()
                     if stats.streak.current > 0 {
                         Label("\(stats.streak.current)-day chain", systemImage: "flame.fill")
                             .font(.footnote.weight(.semibold))
-                            .foregroundStyle(Palette.saffron)
+                            .foregroundStyle(Palette.accent)
                     }
                 }
                 HStack(alignment: .center, spacing: 18) {
-                    MalaView(beads: stats.malaBeads, malas: stats.malas, color: habit.color.color)
+                    MilestoneRing(votes: stats.votes, next: stats.nextMilestone, progress: stats.milestoneProgress, color: habit.color.color)
                         .frame(width: 128, height: 128)
                     VStack(alignment: .leading, spacing: 10) {
                         metric("Current chain", "\(stats.streak.current)")
@@ -126,15 +126,20 @@ struct HabitJourneyCard: View {
                         metric("30 days", stats.rate30.map { "\(Int(($0 * 100).rounded()))%" } ?? "–")
                     }
                 }
-                if !habit.identity.trimmed.isEmpty {
-                    Text("\(stats.votes) votes for being \(habit.identity.trimmed).")
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(Palette.ink)
+                VStack(alignment: .leading, spacing: 4) {
+                    if !habit.identity.trimmed.isEmpty {
+                        Text("\(stats.votes) votes for being \(habit.identity.trimmed).")
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(Palette.ink)
+                    }
+                    Text(MilestoneNote.text(votes: stats.votes, next: stats.nextMilestone))
+                        .font(.footnote)
+                        .foregroundStyle(Palette.ink2)
                 }
                 if stats.streak.atRisk {
                     Label("Missed last time. Never miss twice: keep today.", systemImage: "arrow.uturn.up")
                         .font(.footnote.weight(.semibold))
-                        .foregroundStyle(Palette.kumkum)
+                        .foregroundStyle(Palette.danger)
                 }
                 HeatmapView(habit: habit, engine: store.engine, weeks: 16)
                 ForEach(stats.timing, id: \.slotID) { insight in
@@ -153,49 +158,49 @@ struct HabitJourneyCard: View {
     }
 }
 
-/// 108 beads around a circle, filled as votes add up, with the larger guru bead at the bottom.
-struct MalaView: View {
-    var beads: Int
-    var malas: Int
+/// Votes toward the next milestone, as a gradient ring.
+struct MilestoneRing: View {
+    var votes: Int
+    var next: Int
+    var progress: Double
     var color: Color
 
-    @State private var shown = 0
+    @State private var shown: Double = 0
 
     var body: some View {
         ZStack {
-            Canvas { ctx, size in
-                let center = CGPoint(x: size.width / 2, y: size.height / 2)
-                let radius = min(size.width, size.height) / 2 - 7
-                let beadR = max(1.4, radius * .pi / 108 * 0.82)
-                for i in 0..<108 {
-                    // Start just right of the guru bead and run clockwise.
-                    let angle = Double.pi / 2 - Double(i + 1) / 109 * 2 * .pi
-                    let p = CGPoint(x: center.x + cos(angle) * radius, y: center.y + sin(angle) * radius)
-                    let rect = CGRect(x: p.x - beadR, y: p.y - beadR, width: beadR * 2, height: beadR * 2)
-                    if i < shown {
-                        ctx.fill(Path(ellipseIn: rect), with: .color(color))
-                    } else {
-                        ctx.stroke(Path(ellipseIn: rect), with: .color(color.opacity(0.28)), lineWidth: 0.8)
-                    }
-                }
-                let guru = CGPoint(x: center.x, y: center.y + radius)
-                let gr = beadR * 2.2
-                ctx.fill(Path(ellipseIn: CGRect(x: guru.x - gr, y: guru.y - gr, width: gr * 2, height: gr * 2)), with: .color(malas > 0 ? Palette.saffron : color.opacity(0.4)))
-            }
+            Circle().stroke(color.opacity(0.15), lineWidth: 12)
+            Circle()
+                .trim(from: 0, to: max(0.001, shown))
+                .stroke(AngularGradient(colors: [color.opacity(0.55), color], center: .center, startAngle: .degrees(0), endAngle: .degrees(360 * max(0.001, shown))),
+                        style: StrokeStyle(lineWidth: 12, lineCap: .round))
+                .rotationEffect(.degrees(-90))
             VStack(spacing: 0) {
-                Text("\(beads)")
-                    .font(.rounded(26, weight: .bold))
-                    .contentTransition(.numericText(value: Double(beads)))
+                Text("\(votes)")
+                    .font(.rounded(30, weight: .bold))
+                    .contentTransition(.numericText(value: Double(votes)))
                     .foregroundStyle(Palette.ink)
-                Text(malas > 0 ? "of 108 · mala \(malas + 1)" : "of 108")
-                    .font(.caption2)
-                    .foregroundStyle(Palette.ink2)
+                Text("votes").font(.caption2.weight(.semibold)).foregroundStyle(Palette.ink2)
+                Text("next \(next)").font(.caption2).foregroundStyle(Palette.ink2)
             }
         }
-        .onAppear { withAnimation(.easeOut(duration: 0.9)) { shown = beads } }
-        .onChange(of: beads) { _, new in withAnimation(.spring) { shown = new } }
+        .padding(6)
+        .onAppear { withAnimation(.easeOut(duration: 0.9)) { shown = progress } }
+        .onChange(of: progress) { _, new in withAnimation(.spring) { shown = new } }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(beads) of 108 beads on this mala" + (malas > 0 ? ", \(malas) malas completed" : ""))
+        .accessibilityLabel("\(votes) votes. Next milestone at \(next).")
+    }
+}
+
+/// A short line about the milestone just reached or coming up.
+enum MilestoneNote {
+    static func text(votes: Int, next: Int) -> String {
+        switch next {
+        case 21: return "\(next - votes) to go until 21: three weeks of showing up."
+        case 66: return "\(next - votes) to go until 66, the average time for a habit to feel automatic."
+        case 100: return "\(next - votes) to go until 100 votes."
+        default: return "\(next - votes) to go until \(next)."
+        }
     }
 }
 

@@ -82,7 +82,7 @@ struct QuoteRow: View {
                         store.toggleFavorite(quote)
                     } label: {
                         Image(systemName: store.isFavorite(quote) ? "heart.fill" : "heart")
-                            .foregroundStyle(store.isFavorite(quote) ? Palette.kumkum : Palette.ink2)
+                            .foregroundStyle(store.isFavorite(quote) ? Palette.danger : Palette.ink2)
                             .symbolEffect(.bounce, value: store.isFavorite(quote))
                             .frame(width: 32, height: 32)
                     }

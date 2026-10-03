@@ -112,7 +112,7 @@ public enum ReminderText {
         let identity = habit.identity.trimmed
         if !identity.isEmpty { lines.append("Another vote for being \(identity).") }
         if !habit.treat.trimmed.isEmpty { lines.append("Pair it with \(habit.treat.trimmed).") }
-        if lines.isEmpty { lines.append("It's time. Light today's lamp.") }
+        if lines.isEmpty { lines.append("It's time.") }
         return (habit.name, lines.joined(separator: " "))
     }
 

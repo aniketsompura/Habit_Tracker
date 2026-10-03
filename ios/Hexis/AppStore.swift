@@ -44,7 +44,7 @@ final class AppStore {
     var tab: AppTab = .today
     var route: Route?
     var toast: Toast?
-    /// Bumped when the last lamp of the day is lit.
+    /// Bumped when the last habit of the day is done.
     var celebration = 0
 
     let quotes = QuoteBook.shared
@@ -168,7 +168,7 @@ final class AppStore {
 
     func habit(_ id: UUID) -> Habit? { data.habit(id) }
 
-    /// The main tap on a lamp: light it, add one, or open the timer.
+    /// The main tap on a habit's ring: complete it, add one, or open the timer.
     func tap(_ item: AgendaItem, on day: DayKey) {
         guard let habit = habit(item.habitID) else { return }
         switch habit.kind {

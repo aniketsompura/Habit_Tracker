@@ -19,8 +19,8 @@ struct SankalpaSheet: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(spacing: 8) {
-                        DiyaView(color: Palette.saffron, glow: lit ? 1 : 0, size: 84)
-                        Text("Sankalpa").font(.serif(32, weight: .bold)).foregroundStyle(Palette.ink)
+                        HabitMark(color: Palette.accent, symbol: "sparkles", state: lit ? .done : .open(progress: 0), size: 84, doneSymbol: "sparkles")
+                        Text("Sankalpa").font(.display(32, weight: .bold)).foregroundStyle(Palette.ink)
                         Text("A small, clear resolve for today.").font(.subheadline).foregroundStyle(Palette.ink2)
                     }
                     .frame(maxWidth: .infinity)
@@ -28,7 +28,7 @@ struct SankalpaSheet: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Eyebrow(text: "Today I will…")
                         TextField("be patient in every conversation", text: $intention, axis: .vertical)
-                            .font(.serif(19, weight: .regular))
+                            .font(.display(19, weight: .regular))
                             .lineLimit(1...4)
                             .focused($intentionFocused)
                             .padding(14)
@@ -73,10 +73,10 @@ struct SankalpaSheet: View {
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 14)
-                            .background(Capsule().fill(Palette.saffron))
-                            .foregroundStyle(Palette.onSaffron)
+                            .background(Capsule().fill(Palette.accent))
+                            .foregroundStyle(Palette.onAccent)
                     }
-                    .buttonStyle(LampPressStyle())
+                    .buttonStyle(PressStyle())
                     .disabled(lit)
                 }
                 .padding(20)
@@ -122,8 +122,8 @@ struct ReviewSheet: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Image(systemName: "moon.stars.fill").font(.largeTitle).foregroundStyle(HabitColor.indigo.color)
                             .symbolEffect(.pulse, options: .nonRepeating)
-                        Text("Evening review").font(.serif(32, weight: .bold)).foregroundStyle(Palette.ink)
-                        Text("\(summary.done) of \(summary.total) lamps lit today. However the day went, look at it honestly and kindly.")
+                        Text("Evening review").font(.display(32, weight: .bold)).foregroundStyle(Palette.ink)
+                        Text("\(summary.done) of \(summary.total) done today. However the day went, look at it honestly and kindly.")
                             .font(.subheadline).foregroundStyle(Palette.ink2)
                     }
                     if let senecaQuote {
@@ -141,7 +141,7 @@ struct ReviewSheet: View {
                             .background(Capsule().fill(HabitColor.indigo.color))
                             .foregroundStyle(.white)
                     }
-                    .buttonStyle(LampPressStyle())
+                    .buttonStyle(PressStyle())
                 }
                 .padding(20)
             }
@@ -160,7 +160,7 @@ struct ReviewSheet: View {
 
     private func prompt(_ title: String, placeholder: String, text: Binding<String>) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(title).font(.serif(17, weight: .semibold)).foregroundStyle(Palette.ink)
+            Text(title).font(.display(17, weight: .semibold)).foregroundStyle(Palette.ink)
             TextField(placeholder, text: text, axis: .vertical)
                 .lineLimit(2...6)
                 .padding(14)

@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The day as a sky: the sun (or moon) moves along an arc in real time, and each habit's lamp sits at its preferred time.
+/// The day as a sky: the sun (or moon) moves along an arc in real time, and each habit sits at its preferred time.
 struct SkyHeader: View {
     var day: DayKey
     var isToday: Bool
@@ -37,7 +37,7 @@ struct SkyHeader: View {
         return HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading, spacing: 2) {
                 Text(isToday ? "Today" : day.formatted("EEEE"))
-                    .font(.serif(34, weight: .bold))
+                    .font(.display(34, weight: .bold))
                 Text(day.formatted("EEEE d MMMM"))
                     .font(.subheadline.weight(.medium))
                     .opacity(0.8)
@@ -48,14 +48,14 @@ struct SkyHeader: View {
                     .font(.rounded(26, weight: .bold))
                     .contentTransition(.numericText(value: Double(summary.done)))
                     .animation(.snappy, value: summary.done)
-                Text(summary.total == 0 ? "rest day" : "lamps lit")
+                Text(summary.total == 0 ? "rest day" : "done")
                     .font(.caption.weight(.semibold))
                     .opacity(0.8)
             }
         }
         .foregroundStyle(fg)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel(isToday ? "Today, \(summary.done) of \(summary.total) lamps lit" : "\(day.formatted("EEEE d MMMM")), \(summary.done) of \(summary.total) lamps lit")
+        .accessibilityLabel(isToday ? "Today, \(summary.done) of \(summary.total) done" : "\(day.formatted("EEEE d MMMM")), \(summary.done) of \(summary.total) done")
     }
 
     private func point(for minute: Int, in size: CGSize) -> CGPoint {
@@ -90,7 +90,8 @@ struct SkyHeader: View {
                 if let time = item.time, let habit = habits[item.habitID] {
                     let base = point(for: time.minutes, in: size)
                     let stack = timed[..<index].filter { abs(($0.time?.minutes ?? 0) - time.minutes) < 25 }.count
-                    DiyaView(color: habit.color.color, glow: item.done ? 1 : 0, size: 26, flicker: item.done, seed: Double(index))
+                    HabitMark(color: habit.color.color, symbol: habit.symbol, state: item.done ? .done : .open(progress: 0), size: 24, doneSymbol: habit.kind == .quit ? habit.symbol : "checkmark", animated: false)
+                        .background(Circle().fill(.white.opacity(dark ? 0.12 : 0.55)).padding(-2))
                         .position(x: base.x, y: base.y - 14 - CGFloat(stack) * 18)
                         .accessibilityHidden(true)
                 }
@@ -105,7 +106,7 @@ private struct CelestialBody: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(RadialGradient(colors: [(isNight ? Color.white : Palette.flameMid).opacity(0.55), .clear], center: .center, startRadius: 2, endRadius: 34))
+                .fill(RadialGradient(colors: [(isNight ? Color.white : Palette.sunGlow).opacity(0.55), .clear], center: .center, startRadius: 2, endRadius: 34))
                 .frame(width: 68, height: 68)
             if isNight {
                 Image(systemName: "moon.fill")
@@ -113,7 +114,7 @@ private struct CelestialBody: View {
                     .foregroundStyle(Color(hex: 0xF4EBD0))
             } else {
                 Circle()
-                    .fill(LinearGradient(colors: [Color(hex: 0xFFE7A3), Palette.flameOuter], startPoint: .top, endPoint: .bottom))
+                    .fill(LinearGradient(colors: [Color(hex: 0xFFE7A3), Palette.sunEdge], startPoint: .top, endPoint: .bottom))
                     .frame(width: 22, height: 22)
             }
         }
@@ -174,13 +175,13 @@ struct WeekStrip: View {
             VStack(spacing: 4) {
                 Text(day.formatted("EEEEE"))
                     .font(.caption2.weight(.bold))
-                    .foregroundStyle(day == today ? Palette.saffron : Palette.ink2)
+                    .foregroundStyle(day == today ? Palette.accent : Palette.ink2)
                 ZStack {
-                    if isSelected { Circle().fill(Palette.saffron).padding(4) }
-                    Ring(fraction: s.fraction, color: isSelected ? Palette.saffron : Palette.saffron.opacity(0.85), lineWidth: 2.5)
+                    if isSelected { Circle().fill(Palette.accent).padding(4) }
+                    Ring(fraction: s.fraction, color: isSelected ? Palette.accent : Palette.accent.opacity(0.85), lineWidth: 2.5)
                     Text("\(day.day)")
                         .font(.rounded(13, weight: isSelected ? .bold : .medium))
-                        .foregroundStyle(isSelected ? Palette.onSaffron : Palette.ink)
+                        .foregroundStyle(isSelected ? Palette.onAccent : Palette.ink)
                 }
                 .frame(width: 36, height: 36)
             }

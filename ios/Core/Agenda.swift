@@ -2,14 +2,14 @@ import Foundation
 
 /// Parts of the day the Today screen groups habits into.
 public enum DayPeriod: Int, CaseIterable, Comparable, Sendable {
-    case anytime, brahmaMuhurta, morning, afternoon, evening, night
+    case anytime, earlyMorning, morning, afternoon, evening, night
 
-    /// The app's day starts at 3:30 am, at the beginning of Brahma muhurta.
+    /// The app's day starts at 3:30 am, so late-night times count as the end of the day.
     public static let dayStartMinutes = 210
 
     public static func of(_ time: TimeOfDay) -> DayPeriod {
         switch time.minutes {
-        case 210..<360: return .brahmaMuhurta
+        case 210..<360: return .earlyMorning
         case 360..<720: return .morning
         case 720..<1020: return .afternoon
         case 1020..<1260: return .evening
@@ -20,7 +20,7 @@ public enum DayPeriod: Int, CaseIterable, Comparable, Sendable {
     public var title: String {
         switch self {
         case .anytime: return "Through the day"
-        case .brahmaMuhurta: return "Brahma muhurta"
+        case .earlyMorning: return "Early morning"
         case .morning: return "Morning"
         case .afternoon: return "Afternoon"
         case .evening: return "Evening"
@@ -31,7 +31,7 @@ public enum DayPeriod: Int, CaseIterable, Comparable, Sendable {
     public var caption: String {
         switch self {
         case .anytime: return "Whenever it fits"
-        case .brahmaMuhurta: return "Before dawn · 3:30 – 6:00"
+        case .earlyMorning: return "Before dawn · 3:30 – 6:00"
         case .morning: return "6:00 – 12:00"
         case .afternoon: return "12:00 – 5:00"
         case .evening: return "5:00 – 9:00"
@@ -42,7 +42,7 @@ public enum DayPeriod: Int, CaseIterable, Comparable, Sendable {
     public var symbol: String {
         switch self {
         case .anytime: return "circle.dotted"
-        case .brahmaMuhurta: return "moon.stars"
+        case .earlyMorning: return "moon.stars"
         case .morning: return "sunrise"
         case .afternoon: return "sun.max"
         case .evening: return "sunset"

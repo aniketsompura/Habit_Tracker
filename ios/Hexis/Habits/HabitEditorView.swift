@@ -18,7 +18,7 @@ struct HabitEditorView: View {
 
     init(habit: Habit?, today: DayKey) {
         existing = habit
-        _draft = State(initialValue: habit ?? Habit(name: "", symbol: "sparkles", color: .saffron, kind: .check,
+        _draft = State(initialValue: habit ?? Habit(name: "", symbol: "sparkles", color: .orange, kind: .check,
                                                     slots: [HabitSlot(time: TimeOfDay(7, 0))], createdOn: today))
     }
 
@@ -149,7 +149,7 @@ struct HabitEditorView: View {
 
             switch draft.kind {
             case .check:
-                Text("Light the lamp once at each time you set below.").font(.footnote).foregroundStyle(Palette.ink2)
+                Text("Mark it done once at each time you set below.").font(.footnote).foregroundStyle(Palette.ink2)
             case .count:
                 Stepper(value: $draft.target, in: 1...99) {
                     HStack { Text("Daily target"); Spacer(); Text("\(draft.target)").font(.rounded(17)).foregroundStyle(draft.color.color) }
@@ -159,7 +159,7 @@ struct HabitEditorView: View {
                 Stepper(value: $draft.target, in: 1...180) {
                     HStack { Text("Session length"); Spacer(); Text("\(draft.target) min").font(.rounded(17)).foregroundStyle(draft.color.color) }
                 }
-                Text("A timer runs on your Lock Screen and lights the lamp when it ends.").font(.footnote).foregroundStyle(Palette.ink2)
+                Text("A timer runs on your Lock Screen and marks the habit done when it ends.").font(.footnote).foregroundStyle(Palette.ink2)
             case .quit:
                 Text("Every day counts as kept unless you log a slip. Set the time cravings usually hit and you'll get a nudge then.")
                     .font(.footnote).foregroundStyle(Palette.ink2)
@@ -252,7 +252,7 @@ struct HabitEditorView: View {
     private var scheduleFooter: String {
         switch draft.kind {
         case .check, .timed:
-            return draft.slots.count > 1 ? "Each time is its own lamp with its own reminder." : (draft.slots.isEmpty ? "With no time set, the habit sits under Through the day and has no reminder." : "You'll get a reminder at this time, and a gentle follow-up if it's still open.")
+            return draft.slots.count > 1 ? "Each time is its own check-in with its own reminder." : (draft.slots.isEmpty ? "With no time set, the habit sits under Through the day and has no reminder." : "You'll get a reminder at this time, and a gentle follow-up if it's still open.")
         case .count:
             return draft.slots.count > 1 ? "Reminders spread through the day nudge you toward the target." : "Add a few times to get nudges through the day."
         case .quit:

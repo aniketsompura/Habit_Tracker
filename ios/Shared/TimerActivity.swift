@@ -17,5 +17,5 @@ struct TimerActivityAttributes: ActivityAttributes {
 }
 
 extension TimerActivityAttributes {
-    var habitColor: HabitColor { HabitColor(rawValue: colorName) ?? .saffron }
+    var habitColor: HabitColor { HabitColor(rawValue: colorName) ?? .orange }
 }

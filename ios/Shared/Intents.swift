@@ -2,7 +2,7 @@ import AppIntents
 import Foundation
 import WidgetKit
 
-/// Lights a habit's lamp straight from a widget.
+/// Completes a habit straight from a widget.
 struct CompleteHabitIntent: AppIntent {
     static let title: LocalizedStringResource = "Complete habit"
     static let isDiscoverable = false
