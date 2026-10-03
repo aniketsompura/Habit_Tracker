@@ -70,11 +70,14 @@ jobs:
           shoot() {
             local name=$1 hour=$2; shift 2
             SIMCTL_CHILD_TZ=$(zone_for "$hour") xcrun simctl launch --terminate-running-process "$U" "$BUNDLE" -HexisDemo "$@" > /dev/null
-            sleep 7
+            sleep 8
             xcrun simctl io "$U" screenshot "shots/$name.png" > /dev/null 2>&1
             echo "captured $name"
           }
           xcrun simctl ui "$U" appearance light
+          # The first launch after install is slow; warm up so the first screenshot isn't the launch screen.
+          xcrun simctl launch "$U" "$BUNDLE" -HexisDemo > /dev/null
+          sleep 15
           for tab in today habits journey wisdom; do shoot "light-$tab" 8 -HexisTab "$tab"; done
           for route in sankalpa review edit timer; do shoot "light-$route" 8 -HexisRoute "$route"; done
           xcrun simctl ui "$U" appearance dark
