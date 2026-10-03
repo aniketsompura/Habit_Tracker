@@ -36,7 +36,7 @@ struct TimerView: View {
                 Image(systemName: "xmark")
                     .font(.headline)
                     .frame(width: 44, height: 44)
-                    .background(Circle().fill(.white.opacity(0.12)))
+                    .glassBackground(in: Circle())
             }
             .foregroundStyle(.white)
             .padding()
@@ -133,7 +133,7 @@ struct TimerView: View {
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
-                        .background(Capsule().fill(.white.opacity(0.14)))
+                        .glassBackground(in: Capsule())
                 }
                 Button {
                     withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) { timer.finish(store: store, early: true) }

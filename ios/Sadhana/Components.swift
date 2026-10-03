@@ -101,8 +101,7 @@ struct ToastView: View {
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(Palette.rule))
+        .glassBackground(in: RoundedRectangle(cornerRadius: 18, style: .continuous))
         .shadow(color: .black.opacity(0.12), radius: 18, y: 8)
         .padding(.horizontal, 16)
         .accessibilityElement(children: .combine)
@@ -159,5 +158,18 @@ enum Describe {
         if diff > 0 { return diff < 60 ? "in \(diff) min" : "at \(time.displayText)" }
         let late = -diff
         return late < 60 ? "\(late) min ago" : "since \(time.displayText)"
+    }
+}
+
+extension View {
+    /// Liquid Glass on iOS 26 and later; a blurred material on earlier versions.
+    @ViewBuilder
+    func glassBackground<S: Shape>(in shape: S) -> some View {
+        if #available(iOS 26.0, *) {
+            glassEffect(.regular, in: shape)
+        } else {
+            background(.regularMaterial, in: shape)
+                .overlay(shape.stroke(Palette.rule, lineWidth: 1))
+        }
     }
 }

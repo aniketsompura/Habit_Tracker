@@ -43,7 +43,7 @@ A native iPhone habit tracker built with SwiftUI. Each habit is a diya (clay lam
 
 You need a Mac, a USB cable for your iPhone, and an Apple ID.
 
-1. **Install Xcode** from the Mac App Store. It's free.
+1. **Install Xcode 27 or newer** from the Mac App Store. It's free. Your iPhone runs iOS 27, and Xcode can only install apps on iOS versions it knows about, so an older Xcode won't see your phone as a place to run the app.
 2. **Get the code.** Either:
    - On GitHub, switch to the branch `claude/iphone-habit-tracker-vx0avy`, then choose **Code → Download ZIP**, or
    - Run `git clone -b claude/iphone-habit-tracker-vx0avy https://github.com/aniketsompura/Habit_Tracker.git`
@@ -64,8 +64,12 @@ You need a Mac, a USB cable for your iPhone, and an Apple ID.
 
 ### With a free Apple ID
 
-- **Apps expire after 7 days.** Plug in your iPhone and press Run again. Your habits and history are kept as long as you don't delete the app.
-- **The paid Apple Developer Program** ($99 a year) makes the app last a year between installs.
+Sadhana is built to work with a free Apple ID: reminders with their buttons, the timer and its Lock Screen countdown all use features free accounts have. Widgets need an App Group to share data with the app. If Xcode refuses it for your account, see "If something goes wrong" below: the app still works fully, and only the widgets wait. A few limits come with free signing:
+
+- **Re-install every 7 days.** The app stops opening after 7 days. Plug in your iPhone, open the project, and press Run again. It takes about a minute, and your habits and history stay as long as you don't delete the app.
+- **Back up now and then.** Settings → Backup → Save a backup. If you ever delete the app, restore from that file.
+- **Three apps at a time.** A free account can have up to 3 of your own apps installed at once.
+- **If you join the paid Apple Developer Program later** ($99 a year), the app lasts a year between installs. Nothing else changes.
 
 ### If something goes wrong
 
@@ -91,4 +95,4 @@ You need a Mac, a USB cable for your iPhone, and an Apple ID.
 
 The Xcode project uses synchronized folders, so new Swift files in these folders are picked up automatically. Every push builds the app and runs the tests on GitHub's macOS runners (`.github/workflows/ios.yml`).
 
-Minimum iOS version: 17.
+Minimum iOS version: 17. Built and tested with Xcode 26.6 on GitHub; on iOS 26 and later the app picks up the system's Liquid Glass look.
