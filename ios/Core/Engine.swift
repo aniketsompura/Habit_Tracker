@@ -198,7 +198,7 @@ public struct Engine: Sendable {
     }
 
     /// Where actual check-in times drift from the plan by 20 minutes or more, over the last six weeks.
-    public func timing(_ habit: Habit, calendar: Calendar = .sadhana) -> [TimingInsight] {
+    public func timing(_ habit: Habit, calendar: Calendar = .hexis) -> [TimingInsight] {
         guard habit.kind == .check || habit.kind == .timed else { return [] }
         var insights: [TimingInsight] = []
         let from = today.adding(-41)

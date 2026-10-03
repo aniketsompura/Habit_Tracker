@@ -2,7 +2,7 @@ import SwiftUI
 import UserNotifications
 
 @main
-struct SadhanaApp: App {
+struct HexisApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @State private var store = AppStore.shared
     @State private var timer = TimerController.shared

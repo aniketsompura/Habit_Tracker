@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5AD000000000000000000601"
-               BuildableName = "Sadhana.app"
-               BlueprintName = "Sadhana"
-               ReferencedContainer = "container:Sadhana.xcodeproj">
+               BuildableName = "Hexis.app"
+               BlueprintName = "Hexis"
+               ReferencedContainer = "container:Hexis.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AD000000000000000000601"
-            BuildableName = "Sadhana.app"
-            BlueprintName = "Sadhana"
-            ReferencedContainer = "container:Sadhana.xcodeproj">
+            BuildableName = "Hexis.app"
+            BlueprintName = "Hexis"
+            ReferencedContainer = "container:Hexis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AD000000000000000000601"
-            BuildableName = "Sadhana.app"
-            BlueprintName = "Sadhana"
-            ReferencedContainer = "container:Sadhana.xcodeproj">
+            BuildableName = "Hexis.app"
+            BlueprintName = "Hexis"
+            ReferencedContainer = "container:Hexis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

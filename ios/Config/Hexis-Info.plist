@@ -11,11 +11,11 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sadhana</string>
+				<string>hexis</string>
 			</array>
 		</dict>
 	</array>
-	<key>SadhanaAppGroup</key>
-	<string>group.$(SADHANA_ID_PREFIX).sadhana</string>
+	<key>HexisAppGroup</key>
+	<string>group.$(HEXIS_ID_PREFIX).hexis</string>
 </dict>
 </plist>

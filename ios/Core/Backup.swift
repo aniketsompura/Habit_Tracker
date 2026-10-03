@@ -4,14 +4,14 @@ public enum BackupError: Error, Equatable, LocalizedError {
     case unreadable
 
     public var errorDescription: String? {
-        "That file isn't a Sadhana or Habit Chain backup."
+        "That file isn't a Hexis or Habit Chain backup."
     }
 }
 
 /// What a backup file turned out to contain.
 public enum ImportedBackup: Equatable {
-    /// A full Sadhana backup. Restoring it replaces everything.
-    case sadhana(AppData)
+    /// A full Hexis backup. Restoring it replaces everything.
+    case hexis(AppData)
     /// Habits and check-ins from the Habit Chain web tracker. These are added alongside existing habits.
     case habitChain(habits: [Habit], days: [String: DayRecord])
 }
@@ -20,13 +20,13 @@ public enum Backup {
     public static func export(_ data: AppData) throws -> Data {
         let encoder = AppData.makeEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        return try encoder.encode(BackupFile(app: "sadhana", exportedAt: Date(), data: data))
+        return try encoder.encode(BackupFile(app: "hexis", exportedAt: Date(), data: data))
     }
 
     public static func read(_ raw: Data) throws -> ImportedBackup {
         let decoder = AppData.makeDecoder()
-        if let file = try? decoder.decode(BackupFile.self, from: raw), file.app == "sadhana" {
-            return .sadhana(file.data)
+        if let file = try? decoder.decode(BackupFile.self, from: raw), file.app == "hexis" {
+            return .hexis(file.data)
         }
         if let chain = try? JSONDecoder().decode(HabitChainBackup.self, from: raw), chain.app == "habit-chain" {
             return convert(chain)

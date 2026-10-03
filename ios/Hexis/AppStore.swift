@@ -284,14 +284,14 @@ final class AppStore {
 
     func exportBackup() throws -> URL {
         let raw = try Backup.export(data)
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("Sadhana backup \(today.raw).json")
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("Hexis backup \(today.raw).json")
         try raw.write(to: url, options: .atomic)
         return url
     }
 
     func restore(_ imported: ImportedBackup) {
         switch imported {
-        case .sadhana(let restored):
+        case .hexis(let restored):
             mutate { data in
                 data = restored
                 data.preferences.onboarded = true
@@ -336,7 +336,7 @@ final class AppStore {
     }
 
     func handle(url: URL) {
-        guard url.scheme == "sadhana" else { return }
+        guard url.scheme == "hexis" else { return }
         let items = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems ?? []
         func value(_ name: String) -> String? { items.first { $0.name == name }?.value }
         tab = .today

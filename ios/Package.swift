@@ -3,11 +3,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "SadhanaCore",
+    name: "HexisCore",
     platforms: [.iOS(.v17), .macOS(.v14)],
-    products: [.library(name: "SadhanaCore", targets: ["SadhanaCore"])],
+    products: [.library(name: "HexisCore", targets: ["HexisCore"])],
     targets: [
-        .target(name: "SadhanaCore", path: "Core", resources: [.process("Resources")]),
-        .testTarget(name: "SadhanaCoreTests", dependencies: ["SadhanaCore"], path: "CoreTests"),
+        .target(name: "HexisCore", path: "Core", resources: [.process("Resources")]),
+        .testTarget(name: "HexisCoreTests", dependencies: ["HexisCore"], path: "CoreTests"),
     ]
 )

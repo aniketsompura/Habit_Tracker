@@ -39,8 +39,8 @@ jobs:
         run: |
           set +e
           xcodebuild \
-            -project ios/Sadhana.xcodeproj \
-            -scheme Sadhana \
+            -project ios/Hexis.xcodeproj \
+            -scheme Hexis \
             -configuration Debug \
             -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO \

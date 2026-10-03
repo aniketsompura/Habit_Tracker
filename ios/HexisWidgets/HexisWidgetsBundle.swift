@@ -2,7 +2,7 @@ import SwiftUI
 import WidgetKit
 
 @main
-struct SadhanaWidgetsBundle: WidgetBundle {
+struct HexisWidgetsBundle: WidgetBundle {
     var body: some Widget {
         UpNextWidget()
         LampsWidget()
@@ -13,7 +13,7 @@ struct SadhanaWidgetsBundle: WidgetBundle {
 
 // MARK: Timeline
 
-struct SadhanaEntry: TimelineEntry {
+struct HexisEntry: TimelineEntry {
     let date: Date
     let day: DayKey
     let items: [AgendaItem]
@@ -27,15 +27,15 @@ struct SadhanaEntry: TimelineEntry {
     func habit(_ item: AgendaItem) -> Habit? { habits[item.habitID] }
 }
 
-struct SadhanaProvider: TimelineProvider {
-    func placeholder(in context: Context) -> SadhanaEntry { Self.sample(at: Date()) }
+struct HexisProvider: TimelineProvider {
+    func placeholder(in context: Context) -> HexisEntry { Self.sample(at: Date()) }
 
-    func getSnapshot(in context: Context, completion: @escaping (SadhanaEntry) -> Void) {
+    func getSnapshot(in context: Context, completion: @escaping (HexisEntry) -> Void) {
         let entry = Self.entry(at: Date(), data: DataFile.load())
         completion(context.isPreview && !entry.hasHabits ? Self.sample(at: Date()) : entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<SadhanaEntry>) -> Void) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<HexisEntry>) -> Void) {
         let now = Date()
         let data = DataFile.load()
         let today = DayKey(now)
@@ -53,11 +53,11 @@ struct SadhanaProvider: TimelineProvider {
         completion(Timeline(entries: entries, policy: .after(midnight)))
     }
 
-    static func entry(at date: Date, data: AppData) -> SadhanaEntry {
+    static func entry(at date: Date, data: AppData) -> HexisEntry {
         let day = DayKey(date)
         let engine = Engine(data: data, today: day)
         let items = engine.agenda(on: day)
-        return SadhanaEntry(
+        return HexisEntry(
             date: date, day: day, items: items,
             habits: Dictionary(uniqueKeysWithValues: data.habits.map { ($0.id, $0) }),
             next: engine.upNext(on: day, now: TimeOfDay(date)),
@@ -68,7 +68,7 @@ struct SadhanaProvider: TimelineProvider {
     }
 
     /// Example habits for the widget gallery.
-    static func sample(at date: Date) -> SadhanaEntry {
+    static func sample(at date: Date) -> HexisEntry {
         let day = DayKey(date)
         var data = AppData(habits: HabitTemplate.all.prefix(5).map { $0.makeHabit(createdOn: day) })
         for habit in data.habits.prefix(2) { data.complete(habitID: habit.id, slotID: nil, day: day) }
@@ -112,7 +112,7 @@ struct ItemActionButton<Label: View>: View {
 
 struct UpNextWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "SadhanaUpNext", provider: SadhanaProvider()) { entry in
+        StaticConfiguration(kind: "HexisUpNext", provider: HexisProvider()) { entry in
             UpNextWidgetView(entry: entry)
                 .containerBackground(for: .widget) { SkyBackground(date: entry.date) }
         }
@@ -123,7 +123,7 @@ struct UpNextWidget: Widget {
 }
 
 struct UpNextWidgetView: View {
-    var entry: SadhanaEntry
+    var entry: HexisEntry
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -159,7 +159,7 @@ struct UpNextWidgetView: View {
             } else {
                 Spacer(minLength: 0)
                 DiyaView(color: Palette.saffron, glow: 0, size: 36, flicker: false)
-                Text(entry.hasHabits ? "Nothing scheduled now" : "Add a habit in Sadhana").font(.serif(15, weight: .semibold))
+                Text(entry.hasHabits ? "Nothing scheduled now" : "Add a habit in Hexis").font(.serif(15, weight: .semibold))
                 Spacer(minLength: 0)
             }
         }
@@ -178,7 +178,7 @@ struct UpNextWidgetView: View {
     private var setupMessage: some View {
         VStack(alignment: .leading, spacing: 6) {
             Image(systemName: "exclamationmark.triangle")
-            Text("Open Sadhana's settings to turn on widgets.").font(.caption.weight(.semibold))
+            Text("Open settings in Hexis to turn on widgets.").font(.caption.weight(.semibold))
         }
     }
 }
@@ -187,7 +187,7 @@ struct UpNextWidgetView: View {
 
 struct LampsWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "SadhanaLamps", provider: SadhanaProvider()) { entry in
+        StaticConfiguration(kind: "HexisLamps", provider: HexisProvider()) { entry in
             LampsWidgetView(entry: entry)
                 .containerBackground(for: .widget) { SkyBackground(date: entry.date) }
         }
@@ -198,7 +198,7 @@ struct LampsWidget: Widget {
 }
 
 struct LampsWidgetView: View {
-    var entry: SadhanaEntry
+    var entry: HexisEntry
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -209,11 +209,11 @@ struct LampsWidgetView: View {
                 Text("\(entry.summary.done)/\(entry.summary.total) lit").font(.caption.weight(.bold))
             }
             if !entry.canReadData {
-                Text("Open Sadhana's settings to turn on widgets.").font(.caption)
+                Text("Open settings in Hexis to turn on widgets.").font(.caption)
                 Spacer(minLength: 0)
             } else if entry.items.isEmpty {
                 Spacer(minLength: 0)
-                Text(entry.hasHabits ? "Nothing scheduled today. Rest well." : "Add a habit in Sadhana to see it here.").font(.subheadline)
+                Text(entry.hasHabits ? "Nothing scheduled today. Rest well." : "Add a habit in Hexis to see it here.").font(.subheadline)
                 Spacer(minLength: 0)
             } else {
                 HStack(alignment: .top, spacing: 4) {
@@ -244,18 +244,18 @@ struct LampsWidgetView: View {
 
 struct LockScreenWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "SadhanaLockScreen", provider: SadhanaProvider()) { entry in
+        StaticConfiguration(kind: "HexisLockScreen", provider: HexisProvider()) { entry in
             LockScreenWidgetView(entry: entry)
                 .containerBackground(for: .widget) { Color.clear }
         }
-        .configurationDisplayName("Sadhana")
+        .configurationDisplayName("Hexis")
         .description("Lamps lit today and what's up next.")
         .supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
 }
 
 struct LockScreenWidgetView: View {
-    var entry: SadhanaEntry
+    var entry: HexisEntry
     @Environment(\.widgetFamily) private var family
 
     var body: some View {
@@ -273,7 +273,7 @@ struct LockScreenWidgetView: View {
                     Text("Up next · \(next.time?.displayText ?? "today")").font(.caption2.weight(.semibold))
                     Text(habit.name).font(.headline).lineLimit(1)
                 } else {
-                    Text(entry.summary.isComplete ? "All lamps lit" : "Sadhana").font(.headline)
+                    Text(entry.summary.isComplete ? "All lamps lit" : "Hexis").font(.headline)
                 }
                 Text("\(entry.summary.done) of \(entry.summary.total) lamps lit").font(.caption2)
             }

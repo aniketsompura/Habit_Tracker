@@ -1,5 +1,5 @@
 import XCTest
-@testable import SadhanaCore
+@testable import HexisCore
 
 final class EngineTests: XCTestCase {
     let start = DayKey(raw: "2026-09-01")!

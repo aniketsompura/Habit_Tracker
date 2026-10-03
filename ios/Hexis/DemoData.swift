@@ -1,13 +1,13 @@
 #if DEBUG
 import Foundation
 
-/// Sample habits and history for simulator screenshots. Only in debug builds, and only when launched with `-SadhanaDemo`.
+/// Sample habits and history for simulator screenshots. Only in debug builds, and only when launched with `-HexisDemo`.
 enum DemoData {
-    static var isActive: Bool { ProcessInfo.processInfo.arguments.contains("-SadhanaDemo") }
+    static var isActive: Bool { ProcessInfo.processInfo.arguments.contains("-HexisDemo") }
 
-    /// `-SadhanaTab journey` opens a tab; `-SadhanaRoute sankalpa` opens a sheet.
-    static var tab: String? { UserDefaults.standard.string(forKey: "SadhanaTab") }
-    static var route: String? { UserDefaults.standard.string(forKey: "SadhanaRoute") }
+    /// `-HexisTab journey` opens a tab; `-HexisRoute sankalpa` opens a sheet.
+    static var tab: String? { UserDefaults.standard.string(forKey: "HexisTab") }
+    static var route: String? { UserDefaults.standard.string(forKey: "HexisRoute") }
 
     static func make(today: DayKey) -> AppData {
         let start = today.adding(-75)
@@ -72,6 +72,7 @@ enum DemoData {
             $0.focusHabitID = habits.first(where: { $0.name.hasPrefix("Read") })?.id
         }
         data.favoriteQuotes = ["gita-6-19", "marcus-5-1-rising"]
+        if ProcessInfo.processInfo.arguments.contains("-HexisOnboarding") { data.preferences.onboarded = false }
         return data
     }
 }

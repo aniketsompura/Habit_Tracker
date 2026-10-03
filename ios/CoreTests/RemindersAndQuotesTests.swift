@@ -1,5 +1,5 @@
 import XCTest
-@testable import SadhanaCore
+@testable import HexisCore
 
 final class RemindersTests: XCTestCase {
     var calendar: Calendar {
@@ -89,7 +89,7 @@ final class BackupTests: XCTestCase {
         var data = AppData(habits: [habit])
         data.updateRecord(day) { $0.intention = "Be patient"; $0.entries.append(LogEntry(habitID: habit.id, at: Date(timeIntervalSince1970: 1_790_000_000))) }
         let raw = try Backup.export(data)
-        guard case .sadhana(let restored) = try Backup.read(raw) else { return XCTFail("Expected a Sadhana backup") }
+        guard case .hexis(let restored) = try Backup.read(raw) else { return XCTFail("Expected a Hexis backup") }
         XCTAssertEqual(restored, data)
     }
 

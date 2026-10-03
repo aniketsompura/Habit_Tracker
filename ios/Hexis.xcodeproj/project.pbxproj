@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AD000000000000000000101 /* SadhanaWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5AD000000000000000000002 /* SadhanaWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5AD000000000000000000101 /* HexisWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5AD000000000000000000002 /* HexisWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -16,7 +16,7 @@
 			containerPortal = 5AD000000000000000000900 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5AD000000000000000000602;
-			remoteInfo = SadhanaWidgets;
+			remoteInfo = HexisWidgets;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -27,7 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				5AD000000000000000000101 /* SadhanaWidgets.appex in Embed Foundation Extensions */,
+				5AD000000000000000000101 /* HexisWidgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,14 +35,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5AD000000000000000000001 /* Sadhana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sadhana.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AD000000000000000000002 /* SadhanaWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SadhanaWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD000000000000000000001 /* Hexis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hexis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD000000000000000000002 /* HexisWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HexisWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5AD000000000000000000401 /* Sadhana */ = {
+		5AD000000000000000000401 /* Hexis */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Sadhana;
+			path = Hexis;
 			sourceTree = "<group>";
 		};
 		5AD000000000000000000402 /* Shared */ = {
@@ -55,9 +55,9 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		5AD000000000000000000404 /* SadhanaWidgets */ = {
+		5AD000000000000000000404 /* HexisWidgets */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SadhanaWidgets;
+			path = HexisWidgets;
 			sourceTree = "<group>";
 		};
 		5AD000000000000000000405 /* Config */ = {
@@ -88,10 +88,10 @@
 		5AD000000000000000000801 = {
 			isa = PBXGroup;
 			children = (
-				5AD000000000000000000401 /* Sadhana */,
+				5AD000000000000000000401 /* Hexis */,
 				5AD000000000000000000402 /* Shared */,
 				5AD000000000000000000403 /* Core */,
-				5AD000000000000000000404 /* SadhanaWidgets */,
+				5AD000000000000000000404 /* HexisWidgets */,
 				5AD000000000000000000405 /* Config */,
 				5AD000000000000000000802 /* Products */,
 			);
@@ -100,8 +100,8 @@
 		5AD000000000000000000802 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AD000000000000000000001 /* Sadhana.app */,
-				5AD000000000000000000002 /* SadhanaWidgets.appex */,
+				5AD000000000000000000001 /* Hexis.app */,
+				5AD000000000000000000002 /* HexisWidgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5AD000000000000000000601 /* Sadhana */ = {
+		5AD000000000000000000601 /* Hexis */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AD000000000000000000A02 /* Build configuration list for PBXNativeTarget "Sadhana" */;
+			buildConfigurationList = 5AD000000000000000000A02 /* Build configuration list for PBXNativeTarget "Hexis" */;
 			buildPhases = (
 				5AD000000000000000000701 /* Sources */,
 				5AD000000000000000000501 /* Frameworks */,
@@ -124,20 +124,20 @@
 				5AD000000000000000000B01 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5AD000000000000000000401 /* Sadhana */,
+				5AD000000000000000000401 /* Hexis */,
 				5AD000000000000000000402 /* Shared */,
 				5AD000000000000000000403 /* Core */,
 			);
-			name = Sadhana;
+			name = Hexis;
 			packageProductDependencies = (
 			);
-			productName = Sadhana;
-			productReference = 5AD000000000000000000001 /* Sadhana.app */;
+			productName = Hexis;
+			productReference = 5AD000000000000000000001 /* Hexis.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5AD000000000000000000602 /* SadhanaWidgets */ = {
+		5AD000000000000000000602 /* HexisWidgets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AD000000000000000000A03 /* Build configuration list for PBXNativeTarget "SadhanaWidgets" */;
+			buildConfigurationList = 5AD000000000000000000A03 /* Build configuration list for PBXNativeTarget "HexisWidgets" */;
 			buildPhases = (
 				5AD000000000000000000702 /* Sources */,
 				5AD000000000000000000502 /* Frameworks */,
@@ -148,15 +148,15 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5AD000000000000000000404 /* SadhanaWidgets */,
+				5AD000000000000000000404 /* HexisWidgets */,
 				5AD000000000000000000402 /* Shared */,
 				5AD000000000000000000403 /* Core */,
 			);
-			name = SadhanaWidgets;
+			name = HexisWidgets;
 			packageProductDependencies = (
 			);
-			productName = SadhanaWidgets;
-			productReference = 5AD000000000000000000002 /* SadhanaWidgets.appex */;
+			productName = HexisWidgets;
+			productReference = 5AD000000000000000000002 /* HexisWidgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5AD000000000000000000A01 /* Build configuration list for PBXProject "Sadhana" */;
+			buildConfigurationList = 5AD000000000000000000A01 /* Build configuration list for PBXProject "Hexis" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -191,8 +191,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5AD000000000000000000601 /* Sadhana */,
-				5AD000000000000000000602 /* SadhanaWidgets */,
+				5AD000000000000000000601 /* Hexis */,
+				5AD000000000000000000602 /* HexisWidgets */,
 			);
 		};
 /* End PBXProject section */
@@ -234,7 +234,7 @@
 /* Begin PBXTargetDependency section */
 		5AD000000000000000000B01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5AD000000000000000000602 /* SadhanaWidgets */;
+			target = 5AD000000000000000000602 /* HexisWidgets */;
 			targetProxy = 5AD000000000000000000201 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -265,7 +265,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SADHANA_ID_PREFIX = com.aniketsompura;
+				HEXIS_ID_PREFIX = com.aniketsompura;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -291,7 +291,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SADHANA_ID_PREFIX = com.aniketsompura;
+				HEXIS_ID_PREFIX = com.aniketsompura;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
@@ -304,14 +304,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Config/Sadhana.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Config/Hexis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Config/Sadhana-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Sadhana;
+				INFOPLIST_FILE = "Config/Hexis-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Hexis;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -322,7 +322,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(SADHANA_ID_PREFIX).sadhana";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(HEXIS_ID_PREFIX).hexis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -334,14 +334,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Config/Sadhana.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Config/Hexis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Config/Sadhana-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Sadhana;
+				INFOPLIST_FILE = "Config/Hexis-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Hexis;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -352,7 +352,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(SADHANA_ID_PREFIX).sadhana";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(HEXIS_ID_PREFIX).hexis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -362,13 +362,13 @@
 		5AD000000000000000000C21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Config/SadhanaWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Config/HexisWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Config/SadhanaWidgets-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Sadhana;
+				INFOPLIST_FILE = "Config/HexisWidgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Hexis;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -376,7 +376,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(SADHANA_ID_PREFIX).sadhana.widgets";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(HEXIS_ID_PREFIX).hexis.widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -387,13 +387,13 @@
 		5AD000000000000000000C22 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Config/SadhanaWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Config/HexisWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Config/SadhanaWidgets-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Sadhana;
+				INFOPLIST_FILE = "Config/HexisWidgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Hexis;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -401,7 +401,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(SADHANA_ID_PREFIX).sadhana.widgets";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(HEXIS_ID_PREFIX).hexis.widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -412,7 +412,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5AD000000000000000000A01 /* Build configuration list for PBXProject "Sadhana" */ = {
+		5AD000000000000000000A01 /* Build configuration list for PBXProject "Hexis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5AD000000000000000000C01 /* Debug */,
@@ -421,7 +421,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AD000000000000000000A02 /* Build configuration list for PBXNativeTarget "Sadhana" */ = {
+		5AD000000000000000000A02 /* Build configuration list for PBXNativeTarget "Hexis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5AD000000000000000000C11 /* Debug */,
@@ -430,7 +430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AD000000000000000000A03 /* Build configuration list for PBXNativeTarget "SadhanaWidgets" */ = {
+		5AD000000000000000000A03 /* Build configuration list for PBXNativeTarget "HexisWidgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5AD000000000000000000C21 /* Debug */,

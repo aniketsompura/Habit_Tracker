@@ -26,12 +26,12 @@ public struct DayKey: Hashable, Comparable, Codable, Sendable, CustomStringConve
         guard c.year == y, c.month == m, c.day == d else { return nil }
     }
 
-    public init(_ date: Date, calendar: Calendar = .sadhana) {
+    public init(_ date: Date, calendar: Calendar = .hexis) {
         let c = calendar.dateComponents([.year, .month, .day], from: date)
         self.init(year: c.year ?? 2000, month: c.month ?? 1, day: c.day ?? 1)
     }
 
-    public static func today(_ now: Date = Date(), calendar: Calendar = .sadhana) -> DayKey {
+    public static func today(_ now: Date = Date(), calendar: Calendar = .hexis) -> DayKey {
         DayKey(now, calendar: calendar)
     }
 
@@ -73,7 +73,7 @@ public struct DayKey: Hashable, Comparable, Codable, Sendable, CustomStringConve
     public func days(until other: DayKey) -> Int { other.jdn - jdn }
 
     /// The moment this day reaches `time` in the given calendar's time zone.
-    public func date(at time: TimeOfDay = TimeOfDay(0, 0), calendar: Calendar = .sadhana) -> Date {
+    public func date(at time: TimeOfDay = TimeOfDay(0, 0), calendar: Calendar = .hexis) -> Date {
         let c = components
         var dc = DateComponents()
         dc.year = c.year
@@ -116,7 +116,7 @@ public struct TimeOfDay: Hashable, Comparable, Codable, Sendable {
         self.init(m / 60, m % 60)
     }
 
-    public init(_ date: Date, calendar: Calendar = .sadhana) {
+    public init(_ date: Date, calendar: Calendar = .hexis) {
         let c = calendar.dateComponents([.hour, .minute], from: date)
         self.init(c.hour ?? 0, c.minute ?? 0)
     }
@@ -149,7 +149,7 @@ public struct TimeOfDay: Hashable, Comparable, Codable, Sendable {
 
 extension Calendar {
     /// Gregorian calendar in the device's current time zone. Every day boundary in the app uses it.
-    public static var sadhana: Calendar {
+    public static var hexis: Calendar {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = .current
         return calendar

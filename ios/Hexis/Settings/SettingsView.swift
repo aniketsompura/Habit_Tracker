@@ -41,7 +41,7 @@ struct SettingsView: View {
             }
             Button("Cancel", role: .cancel) { pendingImport = nil }
         } message: {
-            Text(importIsReplace ? "This replaces every habit, check-in and reflection in Sadhana with the backup." : "These habits and their check-ins are added alongside what you already have.")
+            Text(importIsReplace ? "This replaces every habit, check-in and reflection in Hexis with the backup." : "These habits and their check-ins are added alongside what you already have.")
         }
         .onAppear { exportURL = try? store.exportBackup() }
     }
@@ -175,13 +175,13 @@ struct SettingsView: View {
     }
 
     private var importIsReplace: Bool {
-        if case .sadhana = pendingImport { return true }
+        if case .hexis = pendingImport { return true }
         return false
     }
 
     private var importTitle: String {
         switch pendingImport {
-        case .sadhana(let data): return "Restore \(data.habits.count) habits from this backup?"
+        case .hexis(let data): return "Restore \(data.habits.count) habits from this backup?"
         case .habitChain(let habits, _): return "Import \(habits.count) habits from Habit Chain?"
         case .none: return ""
         }

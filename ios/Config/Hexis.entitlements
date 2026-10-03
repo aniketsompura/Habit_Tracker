@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.$(SADHANA_ID_PREFIX).sadhana</string>
+		<string>group.$(HEXIS_ID_PREFIX).hexis</string>
 	</array>
 </dict>
 </plist>

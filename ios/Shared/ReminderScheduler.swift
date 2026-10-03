@@ -4,12 +4,12 @@ import UserNotifications
 /// Turns the reminder plan into pending local notifications with Done, +1, Minimum and Snooze buttons.
 enum ReminderScheduler {
     enum Category {
-        static let check = "SADHANA_CHECK"
-        static let count = "SADHANA_COUNT"
-        static let timed = "SADHANA_TIMED"
-        static let quit = "SADHANA_QUIT"
-        static let followUp = "SADHANA_FOLLOW"
-        static let ritual = "SADHANA_RITUAL"
+        static let check = "HEXIS_CHECK"
+        static let count = "HEXIS_COUNT"
+        static let timed = "HEXIS_TIMED"
+        static let quit = "HEXIS_QUIT"
+        static let followUp = "HEXIS_FOLLOW"
+        static let ritual = "HEXIS_RITUAL"
     }
 
     enum Action {
@@ -77,7 +77,7 @@ enum ReminderScheduler {
         center.removePendingNotificationRequests(withIdentifiers: stale)
         guard status == .authorized || status == .provisional || status == .ephemeral else { return }
 
-        let calendar = Calendar.sadhana
+        let calendar = Calendar.hexis
         for reminder in ReminderPlanner.plan(data: data, now: now, calendar: calendar) {
             let content = UNMutableNotificationContent()
             content.title = reminder.title
@@ -105,7 +105,7 @@ enum ReminderScheduler {
     static func scheduleTimerEnd(habitName: String, habitID: UUID, at date: Date) async {
         let content = UNMutableNotificationContent()
         content.title = "\(habitName) complete"
-        content.body = "Your session is done. Open Sadhana to see the lamp lit."
+        content.body = "Your session is done. Open Hexis to see the lamp lit."
         content.sound = .default
         content.userInfo = [Key.habit: habitID.uuidString, Key.kind: "timerEnd"]
         let interval = max(1, date.timeIntervalSinceNow)

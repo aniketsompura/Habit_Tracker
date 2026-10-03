@@ -7,7 +7,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
-	<key>SadhanaAppGroup</key>
-	<string>group.$(SADHANA_ID_PREFIX).sadhana</string>
+	<key>HexisAppGroup</key>
+	<string>group.$(HEXIS_ID_PREFIX).hexis</string>
 </dict>
 </plist>

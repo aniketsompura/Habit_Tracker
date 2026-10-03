@@ -1,6 +1,14 @@
-# Sadhana
+# Hexis
 
-A native iPhone habit tracker built with SwiftUI. Each habit is a diya (clay lamp) that lights when you do it, placed on a sky that follows the time of day. Reminders arrive at each habit's preferred time, and Stoic and Hindu wisdom shows up at the moments it helps most.
+A native iPhone habit tracker built with SwiftUI.
+
+**The name.** *Hexis* (ἕξις) is the Greek word Epictetus uses for a habit, a settled way of being: "Every *hexis* and faculty is maintained and increased by the corresponding actions" (Discourses 2.18). The icon is a marble column of the Stoa at dawn.
+
+**How it works.**
+- Each habit is a small lamp that lights when you do it.
+- The lamps sit on a sky that follows the time of day.
+- Reminders arrive at each habit's preferred time.
+- Stoic and Hindu wisdom shows up at the moments it helps most.
 
 ## What's inside
 
@@ -47,9 +55,9 @@ You need a Mac, a USB cable for your iPhone, and an Apple ID.
 2. **Get the code.** Either:
    - On GitHub, switch to the branch `claude/iphone-habit-tracker-vx0avy`, then choose **Code → Download ZIP**, or
    - Run `git clone -b claude/iphone-habit-tracker-vx0avy https://github.com/aniketsompura/Habit_Tracker.git`
-3. **Open the project.** Double-click `ios/Sadhana.xcodeproj`.
+3. **Open the project.** Double-click `ios/Hexis.xcodeproj`.
 4. **Add your Apple ID.** Xcode → Settings → Accounts → **+** → Apple ID.
-5. **Set signing.** Click **Sadhana** at the top of the left sidebar. For each target, **Sadhana** and **SadhanaWidgets**:
+5. **Set signing.** Click **Hexis** at the top of the left sidebar. For each target, **Hexis** and **HexisWidgets**:
    - Open **Signing & Capabilities**.
    - Set **Team** to your name (Personal Team).
 6. **Prepare your iPhone.**
@@ -57,14 +65,14 @@ You need a Mac, a USB cable for your iPhone, and an Apple ID.
    - Turn on Settings → Privacy & Security → **Developer Mode** (the phone restarts).
 7. **Run it.** Choose your iPhone at the top of the Xcode window and press **Run** (⌘R).
 8. **Trust yourself as a developer.** The first time, iPhone may say "Untrusted Developer". Go to Settings → General → VPN & Device Management, tap your Apple ID, then **Trust**.
-9. **Allow reminders** when Sadhana asks.
+9. **Allow reminders** when Hexis asks.
 10. **Add widgets.**
-    - Home screen: long-press the home screen → **Edit → Add Widget → Sadhana**.
+    - Home screen: long-press the home screen → **Edit → Add Widget → Hexis**.
     - Lock Screen: long-press the Lock Screen → **Customize**.
 
 ### With a free Apple ID
 
-Sadhana is built to work with a free Apple ID: reminders with their buttons, the timer and its Lock Screen countdown all use features free accounts have. Widgets need an App Group to share data with the app. If Xcode refuses it for your account, see "If something goes wrong" below: the app still works fully, and only the widgets wait. A few limits come with free signing:
+Hexis is built to work with a free Apple ID: reminders with their buttons, the timer and its Lock Screen countdown all use features free accounts have. Widgets need an App Group to share data with the app. If Xcode refuses it for your account, see "If something goes wrong" below: the app still works fully, and only the widgets wait. A few limits come with free signing:
 
 - **Re-install every 7 days.** The app stops opening after 7 days. Plug in your iPhone, open the project, and press Run again. It takes about a minute, and your habits and history stay as long as you don't delete the app.
 - **Back up now and then.** Settings → Backup → Save a backup. If you ever delete the app, restore from that file.
@@ -75,12 +83,12 @@ Sadhana is built to work with a free Apple ID: reminders with their buttons, the
 
 - **"Failed to register bundle identifier" or "No profiles for…"**
   - The app's ID is already taken.
-  - Click the **Sadhana** project, open **Build Settings**, search for `SADHANA_ID_PREFIX`, and change `com.aniketsompura` to something unique, like `com.yourname.habits`.
+  - Click the **Hexis** project, open **Build Settings**, search for `HEXIS_ID_PREFIX`, and change `com.aniketsompura` to something unique, like `com.yourname.habits`.
 - **"Personal development teams do not support App Groups"**
   - Remove **App Groups** from both targets under Signing & Capabilities.
   - The app works normally. The widgets show "turn on widgets" until you use a paid account and add the App Group back.
-- **No reminders.** Check Settings → Notifications → Sadhana. In the app, Habits → gear → Reminders shows the status.
-- **No Lock Screen timer.** Turn on Settings → Sadhana → Live Activities.
+- **No reminders.** Check Settings → Notifications → Hexis. In the app, Habits → gear → Reminders shows the status.
+- **No Lock Screen timer.** Turn on Settings → Hexis → Live Activities.
 
 ## Code layout
 
@@ -89,8 +97,8 @@ Sadhana is built to work with a free Apple ID: reminders with their buttons, the
 | `Core/` | Plain Swift logic shared by the app and widgets: models, streaks, agenda, reminder planning, quotes (`Resources/quotes.json`), backup, templates. |
 | `CoreTests/` | Unit tests for `Core`. Run with `swift test --package-path ios`. |
 | `Shared/` | SwiftUI and system code used by both the app and widgets: theme, sky, the diya drawing, data file, notifications, App Intents, the timer Live Activity. |
-| `Sadhana/` | The app: Today, Habits, Journey, Wisdom, Settings, rituals, timer, onboarding. |
-| `SadhanaWidgets/` | Home screen and Lock Screen widgets and the Live Activity. |
+| `Hexis/` | The app: Today, Habits, Journey, Wisdom, Settings, rituals, timer, onboarding. |
+| `HexisWidgets/` | Home screen and Lock Screen widgets and the Live Activity. |
 | `Config/` | Info.plists and entitlements. |
 
 The Xcode project uses synchronized folders, so new Swift files in these folders are picked up automatically. Every push builds the app and runs the tests on GitHub's macOS runners (`.github/workflows/ios.yml`).

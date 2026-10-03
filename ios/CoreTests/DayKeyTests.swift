@@ -1,5 +1,5 @@
 import XCTest
-@testable import SadhanaCore
+@testable import HexisCore
 
 final class DayKeyTests: XCTestCase {
     func testRoundTripAndWeekday() {

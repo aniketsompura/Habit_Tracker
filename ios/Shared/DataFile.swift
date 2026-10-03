@@ -1,12 +1,12 @@
 import Foundation
 
-/// Reads and writes `sadhana.json` in the App Group container, so the app and widgets share one file.
+/// Reads and writes `hexis.json` in the App Group container, so the app and widgets share one file.
 /// Without an App Group (for example a signing setup that doesn't allow one) it falls back to the app's own Documents folder.
 enum DataFile {
-    static let fileName = "sadhana.json"
+    static let fileName = "hexis.json"
 
     static var appGroupID: String? {
-        guard let id = Bundle.main.object(forInfoDictionaryKey: "SadhanaAppGroup") as? String, !id.contains("$(") else { return nil }
+        guard let id = Bundle.main.object(forInfoDictionaryKey: "HexisAppGroup") as? String, !id.contains("$(") else { return nil }
         return id
     }
 
@@ -44,7 +44,7 @@ enum DataFile {
         if result == nil {
             // Keep a copy of anything unreadable instead of overwriting it.
             let stamp = Int(Date().timeIntervalSince1970)
-            try? raw.write(to: target.deletingLastPathComponent().appendingPathComponent("sadhana-unreadable-\(stamp).json"))
+            try? raw.write(to: target.deletingLastPathComponent().appendingPathComponent("hexis-unreadable-\(stamp).json"))
         }
         return result ?? AppData()
     }

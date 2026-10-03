@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Three short pages: what Sadhana is, how it keeps you going, and your first habits with reminders.
+/// Three short pages: what Hexis is, how it keeps you going, and your first habits with reminders.
 struct OnboardingView: View {
     @Environment(AppStore.self) private var store
     @State private var page = 0
@@ -25,22 +25,30 @@ struct OnboardingView: View {
     private var welcome: some View {
         VStack(spacing: 26) {
             Spacer()
-            DiyaView(color: HabitColor.saffron.color, glow: lit ? 1 : 0, size: 130)
+            Image("Emblem")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+                .clipShape(RoundedRectangle(cornerRadius: 34, style: .continuous))
+                .shadow(color: Palette.flameOuter.opacity(lit ? 0.55 : 0), radius: 30, y: 8)
+                .scaleEffect(lit ? 1 : 0.9)
+                .opacity(lit ? 1 : 0)
+                .accessibilityHidden(true)
                 .onAppear {
-                    Task {
-                        try? await Task.sleep(nanoseconds: 500_000_000)
-                        withAnimation(.spring(response: 0.7, dampingFraction: 0.6)) { lit = true }
-                    }
+                    withAnimation(.spring(response: 0.8, dampingFraction: 0.7).delay(0.2)) { lit = true }
                 }
-            VStack(spacing: 10) {
-                Text("Sadhana").font(.serif(44, weight: .bold))
-                Text("Daily practice, one lamp at a time.").font(.title3).opacity(0.85)
+            VStack(spacing: 8) {
+                Text("Hexis").font(.serif(44, weight: .bold))
+                Text("ἕξις · a habit, a settled way of being").font(.serif(16, weight: .regular).italic()).opacity(0.8)
             }
             Text("“Every habit and faculty is maintained and increased by the corresponding actions.”\n— Epictetus, Discourses 2.18")
                 .font(.serif(16, weight: .regular))
                 .multilineTextAlignment(.center)
                 .opacity(0.85)
                 .padding(.horizontal, 30)
+            Text("The word Epictetus uses for habit there is hexis.")
+                .font(.footnote)
+                .opacity(0.7)
             Spacer()
             nextButton("Begin") { page = 1 }
         }

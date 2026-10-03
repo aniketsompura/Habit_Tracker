@@ -4,10 +4,10 @@ This repo has two versions of the tracker:
 
 | | What it is | Start here |
 | --- | --- | --- |
-| **Sadhana** | Native iPhone app (SwiftUI) with reminders at each habit's time, widgets, a Lock Screen timer, never-miss-twice streaks and daily Stoic and Hindu wisdom. Needs a Mac with Xcode to install. | [`ios/README.md`](ios/README.md) |
+| **Hexis** | Native iPhone app (SwiftUI) with reminders at each habit's time, widgets, a Lock Screen timer, never-miss-twice streaks and daily Stoic and Hindu wisdom. Needs a Mac with Xcode to install. | [`ios/README.md`](ios/README.md) |
 | **Habit Chain** | Web tracker that runs as a claude.ai artifact. No reminders or widgets. | Below |
 
-Sadhana can import a Habit Chain backup file, so nothing you log in Habit Chain is lost when you switch.
+Hexis can import a Habit Chain backup file, so nothing you log in Habit Chain is lost when you switch.
 
 ## Habit Chain
 
@@ -38,7 +38,7 @@ Only native apps built with Xcode can add home screen widgets on iOS. A web page
 
 - **Home screen icon** (above). It opens the tracker with one tap.
 - **Shortcuts widget**: make a shortcut with an *Open URLs* action that points at the artifact link, then add the Shortcuts widget to your home screen. It's a button that opens the tracker. It can't show your progress.
-- **Native app**: Sadhana in `ios/` is the native version with widgets. Use the backup file to move your data into it.
+- **Native app**: Hexis in `ios/` is the native version with widgets. Use the backup file to move your data into it.
 
 ### How data is stored
 

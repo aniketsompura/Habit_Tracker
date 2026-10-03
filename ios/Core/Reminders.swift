@@ -23,7 +23,7 @@ public enum ReminderPlanner {
     public static let prefix = "plan."
 
     /// Upcoming reminders over the next days, soonest first, skipping anything already done.
-    public static func plan(data: AppData, now: Date, horizonDays: Int = 7, calendar: Calendar = .sadhana) -> [PlannedReminder] {
+    public static func plan(data: AppData, now: Date, horizonDays: Int = 7, calendar: Calendar = .hexis) -> [PlannedReminder] {
         let today = DayKey(now, calendar: calendar)
         let engine = Engine(data: data, today: today)
         let prefs = data.preferences
