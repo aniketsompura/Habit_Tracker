@@ -53,7 +53,7 @@ These are simulator captures with sample data. The Screenshots workflow regenera
 **Your data**
 - Everything stays on your iPhone in one file.
 - Settings → Backup saves it to Files or iCloud Drive, and restores it later.
-- You can also import a backup from the Habit Chain web tracker.
+- Backups from the Hexis web app (`web/`) restore here too, and so do backups from the older Habit Chain web tracker.
 
 ## Put it on your iPhone
 
