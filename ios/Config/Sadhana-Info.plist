@@ -4,6 +4,17 @@
 <dict>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>sadhana</string>
+			</array>
+		</dict>
+	</array>
 	<key>SadhanaAppGroup</key>
 	<string>group.$(SADHANA_ID_PREFIX).sadhana</string>
 </dict>
