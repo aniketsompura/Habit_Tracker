@@ -38,7 +38,7 @@ struct OnboardingView: View {
                     withAnimation(.spring(response: 0.8, dampingFraction: 0.7).delay(0.2)) { lit = true }
                 }
             VStack(spacing: 8) {
-                Text("Hexis").font(.display(44, weight: .bold))
+                Text("Hexis").font(.heading(44, weight: .bold))
                 Text("ἕξις · a habit, a settled way of being").font(.quote(16).italic()).opacity(0.8)
             }
             Text("“Every habit and faculty is maintained and increased by the corresponding actions.”\n— Epictetus, Discourses 2.18")
@@ -58,7 +58,7 @@ struct OnboardingView: View {
     private var principles: some View {
         VStack(alignment: .leading, spacing: 22) {
             Spacer()
-            Text("How it keeps you going").font(.display(30, weight: .bold))
+            Text("How it keeps you going").font(.heading(30, weight: .bold))
             principle("clock.badge.checkmark", "A time for every habit", "“After I make coffee, I will read.” Plans tied to a time and a cue are followed far more often.")
             principle("arrow.uturn.up", "Never miss twice", "One missed day never breaks your chain. Two in a row does. So a bad day is only ever one day.")
             principle("leaf", "A minimum for hard days", "Every habit has a tiny version. Doing it keeps the chain alive.")
@@ -73,7 +73,7 @@ struct OnboardingView: View {
     private var firstHabits: some View {
         VStack(alignment: .leading, spacing: 18) {
             Spacer(minLength: 30)
-            Text("Choose your first habits").font(.display(30, weight: .bold))
+            Text("Choose your first habits").font(.heading(30, weight: .bold))
             Text("Start with two or three. You can change times and add more later.").opacity(0.85)
             ScrollView {
                 VStack(spacing: 8) {

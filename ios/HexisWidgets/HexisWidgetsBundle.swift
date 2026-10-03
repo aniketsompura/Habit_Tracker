@@ -137,7 +137,7 @@ struct UpNextWidgetView: View {
                 }
                 Spacer(minLength: 0)
                 Image(systemName: habit.symbol).font(.title3)
-                Text(habit.name).font(.display(17, weight: .bold)).lineLimit(2).minimumScaleFactor(0.8)
+                Text(habit.name).font(.heading(17, weight: .bold)).lineLimit(2).minimumScaleFactor(0.8)
                 Text(next.time?.displayText ?? "Any time").font(.caption).opacity(0.8)
                 ItemActionButton(item: next, habit: habit) {
                     Text(actionTitle(next, habit))
@@ -153,13 +153,13 @@ struct UpNextWidgetView: View {
                 HStack(spacing: -6) {
                     DoneRow(count: 3, size: 30, animated: false)
                 }
-                Text("All done").font(.display(17, weight: .bold))
+                Text("All done").font(.heading(17, weight: .bold))
                 Text("\(entry.summary.total) of \(entry.summary.total) today").font(.caption).opacity(0.8)
                 Spacer(minLength: 0)
             } else {
                 Spacer(minLength: 0)
                 HabitMark(color: Palette.accent, symbol: "checkmark", state: .open(progress: 0), size: 36, animated: false)
-                Text(entry.hasHabits ? "Nothing scheduled now" : "Add a habit in Hexis").font(.display(15, weight: .semibold))
+                Text(entry.hasHabits ? "Nothing scheduled now" : "Add a habit in Hexis").font(.heading(15, weight: .semibold))
                 Spacer(minLength: 0)
             }
         }
@@ -203,7 +203,7 @@ struct TodayWidgetView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .firstTextBaseline) {
-                Text("Today").font(.display(18, weight: .bold))
+                Text("Today").font(.heading(18, weight: .bold))
                 Text(entry.day.formatted("EEE d MMM")).font(.caption).opacity(0.75)
                 Spacer()
                 Text("\(entry.summary.done)/\(entry.summary.total) lit").font(.caption.weight(.bold))

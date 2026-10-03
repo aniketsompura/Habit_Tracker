@@ -56,8 +56,10 @@ extension HabitColor {
 }
 
 extension Font {
-    /// New York, the system serif, for titles and quotes.
-    static func serif(_ size: CGFloat, weight: Font.Weight = .semibold) -> Font { .system(size: size, weight: weight, design: .serif) }
+    /// SF Pro for titles and headings.
+    static func heading(_ size: CGFloat, weight: Font.Weight = .semibold) -> Font { .system(size: size, weight: weight, design: .default) }
+    /// New York, the system serif, kept for quotes so they read like something worth pausing on.
+    static func quote(_ size: CGFloat, weight: Font.Weight = .regular) -> Font { .system(size: size, weight: weight, design: .serif) }
     /// SF Rounded for numbers and counters.
     static func rounded(_ size: CGFloat, weight: Font.Weight = .semibold) -> Font { .system(size: size, weight: weight, design: .rounded) }
 }

@@ -12,7 +12,7 @@ struct JourneyView: View {
                     if habits.isEmpty {
                         Card {
                             VStack(alignment: .leading, spacing: 8) {
-                                Text("Your journey starts with one habit").font(.display(22, weight: .bold)).foregroundStyle(Palette.ink)
+                                Text("Your journey starts with one habit").font(.heading(22, weight: .bold)).foregroundStyle(Palette.ink)
                                 Text("Add a habit and check it off for a few days. Streaks, milestones and a map of every day will appear here.")
                                     .font(.subheadline).foregroundStyle(Palette.ink2)
                             }
@@ -63,7 +63,7 @@ struct JourneyView: View {
                         Text(day == store.today ? "Today" : day.formatted("EEEE d MMM"))
                             .font(.footnote.weight(.bold)).foregroundStyle(Palette.accent)
                         if let intention = record.intention, !intention.isEmpty {
-                            Text("Sankalpa: \(intention)").font(.display(16, weight: .medium)).foregroundStyle(Palette.ink)
+                            Text("Sankalpa: \(intention)").font(.heading(16, weight: .medium)).foregroundStyle(Palette.ink)
                         }
                         if let review = record.review { ReviewSummary(review: review) }
                         if let note = record.note, !note.isEmpty {
@@ -109,7 +109,7 @@ struct HabitJourneyCard: View {
             VStack(alignment: .leading, spacing: 16) {
                 HStack(spacing: 10) {
                     Image(systemName: habit.symbol).foregroundStyle(habit.color.color)
-                    Text(habit.name).font(.display(20, weight: .semibold)).foregroundStyle(Palette.ink)
+                    Text(habit.name).font(.heading(20, weight: .semibold)).foregroundStyle(Palette.ink)
                     Spacer()
                     if stats.streak.current > 0 {
                         Label("\(stats.streak.current)-day chain", systemImage: "flame.fill")

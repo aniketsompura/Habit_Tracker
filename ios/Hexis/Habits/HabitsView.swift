@@ -10,7 +10,7 @@ struct HabitsView: View {
                 if active.isEmpty {
                     Section {
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("No habits yet").font(.display(20, weight: .semibold))
+                            Text("No habits yet").font(.heading(20, weight: .semibold))
                             Text("Tap + to add one, or start from a template in the editor.")
                                 .font(.subheadline).foregroundStyle(Palette.ink2)
                         }

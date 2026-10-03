@@ -20,7 +20,7 @@ struct UpNextCard: View {
                     .symbolEffect(.pulse, options: .repeating, isActive: isDue)
                 VStack(alignment: .leading, spacing: 3) {
                     Eyebrow(text: "Up next · \(timing)")
-                    Text(habit.name).font(.display(20, weight: .semibold)).foregroundStyle(Palette.ink)
+                    Text(habit.name).font(.heading(20, weight: .semibold)).foregroundStyle(Palette.ink)
                     if !plan.isEmpty {
                         Text(plan).font(.footnote).foregroundStyle(Palette.ink2).lineLimit(2)
                     }
@@ -116,7 +116,7 @@ struct SankalpaCard: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Eyebrow(text: "Today's Sankalpa", symbol: "sparkle")
                         if let intention = record.intention, !intention.isEmpty {
-                            Text(intention).font(.display(18, weight: .medium)).foregroundStyle(Palette.ink)
+                            Text(intention).font(.heading(18, weight: .medium)).foregroundStyle(Palette.ink)
                         }
                         if let focus {
                             Label("Non-negotiable: \(focus.name)", systemImage: "star.fill")
@@ -137,7 +137,7 @@ struct SankalpaCard: View {
                             .frame(width: 44, height: 44)
                             .background(Circle().fill(Palette.accent.opacity(0.12)))
                         VStack(alignment: .leading, spacing: 3) {
-                            Text("Set today's Sankalpa").font(.display(19, weight: .semibold)).foregroundStyle(Palette.ink)
+                            Text("Set today's Sankalpa").font(.heading(19, weight: .semibold)).foregroundStyle(Palette.ink)
                             Text("One intention and one habit that can't slip. 20 seconds.")
                                 .font(.footnote).foregroundStyle(Palette.ink2)
                         }
@@ -165,7 +165,7 @@ struct ReviewCard: View {
                         .foregroundStyle(HabitColor.indigo.color)
                         .frame(width: 44)
                     VStack(alignment: .leading, spacing: 3) {
-                        Text(reviewed ? "Day reviewed" : "Evening review").font(.display(19, weight: .semibold)).foregroundStyle(Palette.ink)
+                        Text(reviewed ? "Day reviewed" : "Evening review").font(.heading(19, weight: .semibold)).foregroundStyle(Palette.ink)
                         Text(reviewed ? "Tap to read or change your answers." : "Seneca's three questions before sleep. Two minutes.")
                             .font(.footnote).foregroundStyle(Palette.ink2)
                     }

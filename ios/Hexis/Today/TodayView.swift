@@ -126,7 +126,7 @@ struct TodayView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     if let intention = record.intention, !intention.isEmpty {
                         Eyebrow(text: "Sankalpa", symbol: "sparkle")
-                        Text(intention).font(.display(17, weight: .medium)).foregroundStyle(Palette.ink)
+                        Text(intention).font(.heading(17, weight: .medium)).foregroundStyle(Palette.ink)
                     }
                     if let review = record.review {
                         Eyebrow(text: "Evening review", symbol: "moon.stars")
@@ -166,7 +166,7 @@ struct PeriodHeader: View {
                 .font(.footnote.weight(.semibold))
                 .foregroundStyle(Palette.accent)
             Text(period.title)
-                .font(.display(17, weight: .semibold))
+                .font(.heading(17, weight: .semibold))
                 .foregroundStyle(Palette.ink)
             Text(period.caption)
                 .font(.caption)
@@ -190,7 +190,7 @@ struct AllLitCard: View {
         Card(tint: Palette.accent) {
             VStack(alignment: .leading, spacing: 12) {
                 DoneRow(count: 5, size: 30)
-                Text("All done for today").font(.display(22, weight: .bold)).foregroundStyle(Palette.ink)
+                Text("All done for today").font(.heading(22, weight: .bold)).foregroundStyle(Palette.ink)
                 QuoteBlock(quote: quote, showOriginal: showOriginal, size: 15)
             }
         }
@@ -227,7 +227,7 @@ struct EmptyToday: View {
                     HabitMark(color: HabitColor.indigo.color, symbol: "book.fill", state: .open(progress: 0.6), size: 44, animated: false)
                     HabitMark(color: HabitColor.orange.color, symbol: "figure.walk", state: .open(progress: 0), size: 44, animated: false)
                 }
-                Text("Start your first habit").font(.display(24, weight: .bold)).foregroundStyle(Palette.ink)
+                Text("Start your first habit").font(.heading(24, weight: .bold)).foregroundStyle(Palette.ink)
                 Text("Add a habit and the time you want to do it. Each day you do it, its ring fills and it moves along the sky above.")
                     .font(.subheadline)
                     .foregroundStyle(Palette.ink2)

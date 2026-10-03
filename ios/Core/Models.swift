@@ -11,7 +11,7 @@ public enum HabitKind: String, Codable, CaseIterable, Sendable {
     case quit
 }
 
-/// Habit inks, named after things from an Indian home and a Stoic's graphite.
+/// Habit colors.
 public enum HabitColor: String, Codable, CaseIterable, Sendable {
     case orange, red, yellow, teal, green, pink, indigo, graphite
 }

@@ -20,7 +20,7 @@ struct SankalpaSheet: View {
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(spacing: 8) {
                         HabitMark(color: Palette.accent, symbol: "sparkles", state: lit ? .done : .open(progress: 0), size: 84, doneSymbol: "sparkles")
-                        Text("Sankalpa").font(.display(32, weight: .bold)).foregroundStyle(Palette.ink)
+                        Text("Sankalpa").font(.heading(32, weight: .bold)).foregroundStyle(Palette.ink)
                         Text("A small, clear resolve for today.").font(.subheadline).foregroundStyle(Palette.ink2)
                     }
                     .frame(maxWidth: .infinity)
@@ -28,7 +28,7 @@ struct SankalpaSheet: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Eyebrow(text: "Today I will…")
                         TextField("be patient in every conversation", text: $intention, axis: .vertical)
-                            .font(.display(19, weight: .regular))
+                            .font(.heading(19, weight: .regular))
                             .lineLimit(1...4)
                             .focused($intentionFocused)
                             .padding(14)
@@ -122,7 +122,7 @@ struct ReviewSheet: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Image(systemName: "moon.stars.fill").font(.largeTitle).foregroundStyle(HabitColor.indigo.color)
                             .symbolEffect(.pulse, options: .nonRepeating)
-                        Text("Evening review").font(.display(32, weight: .bold)).foregroundStyle(Palette.ink)
+                        Text("Evening review").font(.heading(32, weight: .bold)).foregroundStyle(Palette.ink)
                         Text("\(summary.done) of \(summary.total) done today. However the day went, look at it honestly and kindly.")
                             .font(.subheadline).foregroundStyle(Palette.ink2)
                     }
@@ -160,7 +160,7 @@ struct ReviewSheet: View {
 
     private func prompt(_ title: String, placeholder: String, text: Binding<String>) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(title).font(.display(17, weight: .semibold)).foregroundStyle(Palette.ink)
+            Text(title).font(.heading(17, weight: .semibold)).foregroundStyle(Palette.ink)
             TextField(placeholder, text: text, axis: .vertical)
                 .lineLimit(2...6)
                 .padding(14)

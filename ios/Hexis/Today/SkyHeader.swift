@@ -37,7 +37,7 @@ struct SkyHeader: View {
         return HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading, spacing: 2) {
                 Text(isToday ? "Today" : day.formatted("EEEE"))
-                    .font(.display(34, weight: .bold))
+                    .font(.heading(34, weight: .bold))
                 Text(day.formatted("EEEE d MMMM"))
                     .font(.subheadline.weight(.medium))
                     .opacity(0.8)

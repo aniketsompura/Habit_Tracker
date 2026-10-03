@@ -66,7 +66,7 @@ struct TimerView: View {
             Spacer()
             HabitMark(color: habit.color.color, symbol: habit.symbol, state: .open(progress: 0), size: 110, animated: false)
             VStack(spacing: 6) {
-                Text(habit.name).font(.display(32, weight: .bold))
+                Text(habit.name).font(.heading(32, weight: .bold))
                 Text("\(habit.target) minutes").font(.title3).opacity(0.8)
             }
             Text("“\(quote.text)”\n— \(quote.cite)")
@@ -123,7 +123,7 @@ struct TimerView: View {
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel("\(clock(remaining)) left")
             }
-            Text(habit.name).font(.display(24, weight: .semibold)).opacity(0.9)
+            Text(habit.name).font(.heading(24, weight: .semibold)).opacity(0.9)
             Spacer()
             HStack(spacing: 14) {
                 Button {
@@ -160,7 +160,7 @@ struct TimerView: View {
             Spacer()
             HabitMark(color: habit.color.color, symbol: habit.symbol, state: .done, size: 130)
                 .transition(.scale.combined(with: .opacity))
-            Text("Session complete").font(.display(34, weight: .bold))
+            Text("Session complete").font(.heading(34, weight: .bold))
             Text("“\(quote.text)”\n— \(quote.cite)")
                 .font(.quote(16))
                 .multilineTextAlignment(.center)

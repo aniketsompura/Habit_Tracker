@@ -100,7 +100,7 @@ struct CelebrationOverlay: View {
                 }
                 VStack(spacing: 14) {
                     DoneRow(count: 5, size: 38)
-                    Text("All done for today").font(.display(28, weight: .bold)).foregroundStyle(Palette.ink)
+                    Text("All done for today").font(.heading(28, weight: .bold)).foregroundStyle(Palette.ink)
                     QuoteBlock(quote: store.quote(.dayComplete), showOriginal: false, size: 15)
                 }
                 .padding(22)
