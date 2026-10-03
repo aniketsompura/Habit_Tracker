@@ -10,6 +10,14 @@ A native iPhone habit tracker built with SwiftUI.
 - Reminders arrive at each habit's preferred time.
 - Stoic and Hindu wisdom shows up at the moments it helps most.
 
+## Screens
+
+| Today | Habits | Journey | Wisdom |
+| --- | --- | --- | --- |
+| ![Today](../docs/screenshots/dark-today.jpg) | ![Habits](../docs/screenshots/light-habits.jpg) | ![Journey](../docs/screenshots/light-journey.jpg) | ![Wisdom](../docs/screenshots/light-wisdom.jpg) |
+
+These are simulator captures with sample data. The Screenshots workflow regenerates them when you run it from the Actions tab.
+
 ## What's inside
 
 **Habits**
