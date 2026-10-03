@@ -1,0 +1,40 @@
+name: iOS
+
+on:
+  push:
+    paths:
+      - "ios/**"
+      - ".github/workflows/ios.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ios-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core-tests:
+    name: Core tests
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: swift test --package-path ios
+
+  build:
+    name: Build app and widgets
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tool versions
+        run: |
+          xcodebuild -version
+          sw_vers
+      - name: Build for iOS Simulator
+        run: |
+          xcodebuild -quiet \
+            -project ios/Sadhana.xcodeproj \
+            -scheme Sadhana \
+            -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
