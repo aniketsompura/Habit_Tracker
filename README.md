@@ -1,10 +1,21 @@
-# Habit Chain
+# Habit Tracker
+
+This repo has two versions of the tracker:
+
+| | What it is | Start here |
+| --- | --- | --- |
+| **Sadhana** | Native iPhone app (SwiftUI) with reminders at each habit's time, widgets, a Lock Screen timer, never-miss-twice streaks and daily Stoic and Hindu wisdom. Needs a Mac with Xcode to install. | [`ios/README.md`](ios/README.md) |
+| **Habit Chain** | Web tracker that runs as a claude.ai artifact. No reminders or widgets. | Below |
+
+Sadhana can import a Habit Chain backup file, so nothing you log in Habit Chain is lost when you switch.
+
+## Habit Chain
 
 A personal habit tracker for iPhone. It runs as a claude.ai artifact, and your habits, daily check-ins and notes are saved in the artifact's own database.
 
 `habit-chain.html` is the full source of the published page.
 
-## What it does
+### What it does
 
 - **Today**: tap a habit to check it off. Habits you do more than once a day (like 8 glasses of water) count up with each tap, and **−1** undoes one tap. Use the week strip to go back and fill in days you missed. Each row shows the last 7 days as a chain.
 - **Schedules**: pick the days a habit applies to (every day, weekdays, Mon/Wed/Fri…). Days that aren't scheduled never break a chain.
@@ -13,7 +24,7 @@ A personal habit tracker for iPhone. It runs as a claude.ai artifact, and your h
 - **Habits**: add, edit, reorder, archive (keeps the history) or delete habits.
 - **Backup**: save everything as a `.json` file, and restore from one later.
 
-## Using it on your iPhone
+### Using it on your iPhone
 
 1. Open the artifact link in **Safari** and sign in to claude.ai.
 2. Tap **Share → Add to Home Screen**.
@@ -21,15 +32,15 @@ A personal habit tracker for iPhone. It runs as a claude.ai artifact, and your h
 
 You can also pin it in the claude.ai sidebar so it's easy to find in the Claude app.
 
-### About widgets
+#### About widgets
 
 Only native apps built with Xcode can add home screen widgets on iOS. A web page, including this artifact, can't. Here are the closest options:
 
 - **Home screen icon** (above). It opens the tracker with one tap.
 - **Shortcuts widget**: make a shortcut with an *Open URLs* action that points at the artifact link, then add the Shortcuts widget to your home screen. It's a button that opens the tracker. It can't show your progress.
-- **Native app later**: if you get access to a Mac, the next step would be a SwiftUI app with an interactive WidgetKit widget. You'd use the backup file to move your data into it.
+- **Native app**: Sadhana in `ios/` is the native version with widgets. Use the backup file to move your data into it.
 
-## How data is stored
+### How data is stored
 
 The page uses the artifact `db` capability. Nothing is saved in your browser, so your data follows you to any device where you're signed in.
 
