@@ -1,0 +1,95 @@
+name: Screenshots
+
+on:
+  push:
+    paths:
+      - "ios/**"
+      - ".github/workflows/screenshots.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: shots-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  shots:
+    name: Simulator screenshots
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick an iPhone simulator
+        id: sim
+        run: |
+          xcrun simctl list devices available -j > devices.json
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          devices = json.load(open("devices.json"))["devices"]
+          phones = [(runtime, d) for runtime, ds in devices.items() if "iOS" in runtime for d in ds if d["name"].startswith("iPhone")]
+          phones.sort(key=lambda t: (t[0], "Pro" in t[1]["name"] and "Max" not in t[1]["name"]))
+          runtime, device = phones[-1]
+          print(f"udid={device['udid']}")
+          print(f"name={device['name']}")
+          PY
+          cat "$GITHUB_OUTPUT"
+
+      - name: Build for the simulator
+        run: |
+          set +e
+          xcodebuild -project ios/Sadhana.xcodeproj -scheme Sadhana -configuration Debug \
+            -destination "id=${{ steps.sim.outputs.udid }}" -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build > build.log 2>&1
+          status=$?
+          grep -E "^/.*(error|warning): " build.log | sed 's|/Users/runner/work/Habit_Tracker/Habit_Tracker/||' | sort -u | head -100
+          grep -E "\*\* BUILD" build.log
+          exit $status
+
+      - name: Boot and install
+        run: |
+          U=${{ steps.sim.outputs.udid }}
+          xcrun simctl boot "$U" || true
+          xcrun simctl bootstatus "$U" -b
+          xcrun simctl status_bar "$U" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3
+          APP=$(find build/Build/Products -maxdepth 2 -name Sadhana.app | head -1)
+          echo "Installing $APP"
+          xcrun simctl install "$U" "$APP"
+
+      - name: Capture screens
+        run: |
+          U=${{ steps.sim.outputs.udid }}
+          BUNDLE=com.aniketsompura.sadhana
+          mkdir -p shots
+          # A time zone where it is currently about the given local hour, so the sky shows that time of day.
+          zone_for() {
+            python3 -c "import datetime,sys; h=datetime.datetime.utcnow().hour; n=int(sys.argv[1])-h
+          n = n-24 if n>14 else (n+24 if n<-12 else n)
+          print('Etc/GMT' if n==0 else ('Etc/GMT-%d' % n if n>0 else 'Etc/GMT+%d' % -n))" "$1"
+          }
+          shoot() {
+            local name=$1 hour=$2; shift 2
+            SIMCTL_CHILD_TZ=$(zone_for "$hour") xcrun simctl launch --terminate-running-process "$U" "$BUNDLE" -SadhanaDemo "$@" > /dev/null
+            sleep 7
+            xcrun simctl io "$U" screenshot "shots/$name.png" > /dev/null 2>&1
+            echo "captured $name"
+          }
+          xcrun simctl ui "$U" appearance light
+          for tab in today habits journey wisdom; do shoot "light-$tab" 8 -SadhanaTab "$tab"; done
+          for route in sankalpa review edit timer; do shoot "light-$route" 8 -SadhanaRoute "$route"; done
+          xcrun simctl ui "$U" appearance dark
+          for tab in today journey; do shoot "dark-$tab" 20 -SadhanaTab "$tab"; done
+          shoot "dark-review" 21 -SadhanaRoute review
+          # Smaller JPEG copies for quick review.
+          mkdir -p small
+          for f in shots/*.png; do sips -s format jpeg -s formatOptions 70 -Z 1000 "$f" --out "small/$(basename "${f%.png}").jpg" > /dev/null; done
+          ls -la shots small
+
+      - name: Crash check
+        if: always()
+        run: |
+          ls ~/Library/Logs/DiagnosticReports 2>/dev/null | grep -i sadhana && echo "Found crash reports" || echo "No crash reports"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: small

@@ -54,13 +54,42 @@ final class AppStore {
     @ObservationIgnored private var rescheduleTask: Task<Void, Never>?
 
     init() {
-        let loaded = DataFile.load()
+        var loaded = DataFile.load()
         let day = DayKey.today()
+        #if DEBUG
+        if DemoData.isActive {
+            loaded = DemoData.make(today: day)
+            try? DataFile.save(loaded)
+        }
+        #endif
         data = loaded
         today = day
         engine = Engine(data: loaded, today: day)
         loadedAt = DataFile.modificationDate()
+        #if DEBUG
+        if DemoData.isActive { applyDemoNavigation() }
+        #endif
     }
+
+    #if DEBUG
+    private func applyDemoNavigation() {
+        switch DemoData.tab {
+        case "habits": tab = .habits
+        case "journey": tab = .journey
+        case "wisdom": tab = .wisdom
+        default: tab = .today
+        }
+        switch DemoData.route {
+        case "sankalpa": route = .sankalpa
+        case "review": route = .review
+        case "new": route = .newHabit
+        case "edit": if let first = data.activeHabits.first(where: { $0.name.hasPrefix("Read") }) { route = .editHabit(first.id) }
+        case "timer":
+            if let meditate = data.activeHabits.first(where: { $0.kind == .timed }) { route = .timer(habitID: meditate.id, slotID: nil) }
+        default: break
+        }
+    }
+    #endif
 
     var prefs: Preferences { data.preferences }
     var tradition: Tradition { data.preferences.tradition }
