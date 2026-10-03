@@ -18,7 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run tests
-        run: swift test --package-path ios
+        run: |
+          set +e
+          swift test --package-path ios > test.log 2>&1
+          status=$?
+          grep -E "error:|failed|passed after|Executed|warning: unre" test.log | grep -v "^\[" | head -150
+          tail -3 test.log
+          exit $status
 
   build:
     name: Build app and widgets
@@ -31,10 +37,15 @@ jobs:
           sw_vers
       - name: Build for iOS Simulator
         run: |
-          xcodebuild -quiet \
+          set +e
+          xcodebuild \
             -project ios/Sadhana.xcodeproj \
             -scheme Sadhana \
             -configuration Debug \
             -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO \
-            build
+            build > build.log 2>&1
+          status=$?
+          grep -E "^/.*(error|warning): " build.log | sed 's|/Users/runner/work/Habit_Tracker/Habit_Tracker/||' | sort -u | head -200
+          grep -E "\*\* BUILD" build.log
+          exit $status

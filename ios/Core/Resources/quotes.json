@@ -1,1 +1,1318 @@
-[]
+[
+ {
+  "id": "marcus-5-1-rising",
+  "text": "In the morning, when you rise unwillingly, let this thought be present: I am rising to the work of a human being.",
+  "cite": "Marcus Aurelius, Meditations 5.1",
+  "tradition": "stoic",
+  "moments": [
+   "morning"
+  ]
+ },
+ {
+  "id": "marcus-2-1-begin",
+  "text": "Begin the morning by saying to yourself: I shall meet with the busybody, the ungrateful, the arrogant. But none of them can harm me, and I cannot be angry with my kin.",
+  "cite": "Marcus Aurelius, Meditations 2.1",
+  "tradition": "stoic",
+  "moments": [
+   "morning"
+  ]
+ },
+ {
+  "id": "marcus-2-5-last",
+  "text": "Do every act of your life as if it were the last, with simple dignity, and you will give yourself relief from all other thoughts.",
+  "cite": "Marcus Aurelius, Meditations 2.5",
+  "tradition": "stoic",
+  "moments": [
+   "timer",
+   "general"
+  ]
+ },
+ {
+  "id": "marcus-4-3-retreat",
+  "text": "Nowhere can a person retire with more quiet or more freedom from trouble than into their own soul.",
+  "cite": "Marcus Aurelius, Meditations 4.3",
+  "tradition": "stoic",
+  "moments": [
+   "timer",
+   "evening"
+  ]
+ },
+ {
+  "id": "marcus-4-17-be-good",
+  "text": "Do not act as if you were going to live ten thousand years. While you live, while it is in your power, be good.",
+  "cite": "Marcus Aurelius, Meditations 4.17",
+  "tradition": "stoic",
+  "moments": [
+   "morning",
+   "general"
+  ]
+ },
+ {
+  "id": "marcus-5-9-return",
+  "text": "Do not be disgusted, discouraged or dissatisfied if you do not succeed in doing everything according to right principles. When you have failed, return back again.",
+  "cite": "Marcus Aurelius, Meditations 5.9",
+  "tradition": "stoic",
+  "moments": [
+   "miss",
+   "slip"
+  ]
+ },
+ {
+  "id": "marcus-6-11-harmony",
+  "text": "When circumstances have disturbed you, quickly return to yourself. You will have more mastery over the harmony by continually returning to it.",
+  "cite": "Marcus Aurelius, Meditations 6.11",
+  "tradition": "stoic",
+  "moments": [
+   "miss",
+   "slip"
+  ]
+ },
+ {
+  "id": "marcus-7-59-dig",
+  "text": "Look within. Within is the fountain of good, and it will always bubble up, if you will always dig.",
+  "cite": "Marcus Aurelius, Meditations 7.59",
+  "tradition": "stoic",
+  "moments": [
+   "evening",
+   "general"
+  ]
+ },
+ {
+  "id": "marcus-8-36-whole-life",
+  "text": "Do not disturb yourself by thinking of the whole of your life. On every occasion ask yourself: what is there in this that is unbearable?",
+  "cite": "Marcus Aurelius, Meditations 8.36",
+  "tradition": "stoic",
+  "moments": [
+   "minimum",
+   "miss"
+  ]
+ },
+ {
+  "id": "marcus-10-16-be-such",
+  "text": "No longer talk at all about the kind of person a good person ought to be, but be such.",
+  "cite": "Marcus Aurelius, Meditations 10.16",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit",
+   "morning"
+  ]
+ },
+ {
+  "id": "marcus-4-49-promontory",
+  "text": "Be like the promontory against which the waves continually break; it stands firm and tames the fury of the water around it.",
+  "cite": "Marcus Aurelius, Meditations 4.49",
+  "tradition": "stoic",
+  "moments": [
+   "urge",
+   "streak"
+  ]
+ },
+ {
+  "id": "marcus-5-16-dyed",
+  "text": "Such as are your habitual thoughts, such also will be the character of your mind; for the soul is dyed by the thoughts.",
+  "cite": "Marcus Aurelius, Meditations 5.16",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit",
+   "streak"
+  ]
+ },
+ {
+  "id": "marcus-7-69-last-day",
+  "text": "The perfection of character is this: to live each day as if it were the last, without frenzy, without apathy, without pretence.",
+  "cite": "Marcus Aurelius, Meditations 7.69",
+  "tradition": "stoic",
+  "moments": [
+   "evening"
+  ]
+ },
+ {
+  "id": "marcus-8-47-judgement",
+  "text": "If you are pained by any external thing, it is not the thing that disturbs you, but your own judgement about it. And it is in your power to wipe out that judgement now.",
+  "cite": "Marcus Aurelius, Meditations 8.47",
+  "tradition": "stoic",
+  "moments": [
+   "slip",
+   "miss"
+  ]
+ },
+ {
+  "id": "marcus-3-10-present",
+  "text": "Every person lives only this present moment, which is an indivisible point. The rest of life is either past or uncertain.",
+  "cite": "Marcus Aurelius, Meditations 3.10",
+  "tradition": "stoic",
+  "moments": [
+   "timer",
+   "general"
+  ]
+ },
+ {
+  "id": "marcus-6-2-duty",
+  "text": "Let it make no difference to you whether you are cold or warm, drowsy or rested, if you are doing your duty.",
+  "cite": "Marcus Aurelius, Meditations 6.2",
+  "tradition": "stoic",
+  "moments": [
+   "morning",
+   "minimum"
+  ]
+ },
+ {
+  "id": "marcus-7-8-future",
+  "text": "Do not let future things disturb you. You will come to them, if you must, with the same reason you now use for present things.",
+  "cite": "Marcus Aurelius, Meditations 7.8",
+  "tradition": "stoic",
+  "moments": [
+   "general"
+  ]
+ },
+ {
+  "id": "marcus-4-24-few",
+  "text": "Occupy yourself with few things, says the philosopher, if you would be tranquil.",
+  "cite": "Marcus Aurelius, Meditations 4.24",
+  "tradition": "stoic",
+  "moments": [
+   "minimum",
+   "general"
+  ]
+ },
+ {
+  "id": "marcus-4-18-own-acts",
+  "text": "How much trouble a person avoids who does not look to what a neighbour says or does, but only to what they do themselves.",
+  "cite": "Marcus Aurelius, Meditations 4.18",
+  "tradition": "stoic",
+  "moments": [
+   "general"
+  ]
+ },
+ {
+  "id": "marcus-8-32-action-by-action",
+  "text": "You must build your life action by action, and be content if each act does its duty as far as possible.",
+  "cite": "Marcus Aurelius, Meditations 8.32",
+  "tradition": "stoic",
+  "moments": [
+   "streak",
+   "dayComplete",
+   "minimum"
+  ]
+ },
+ {
+  "id": "marcus-6-19-possible",
+  "text": "If a thing is difficult for you to accomplish, do not think it impossible for anyone. If it is possible for a human being, think that it can be attained by you too.",
+  "cite": "Marcus Aurelius, Meditations 6.19",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit",
+   "miss"
+  ]
+ },
+ {
+  "id": "marcus-4-7-opinion",
+  "text": "Take away your opinion, and the complaint 'I have been harmed' is taken away. Take away the complaint, and the harm is taken away.",
+  "cite": "Marcus Aurelius, Meditations 4.7",
+  "tradition": "stoic",
+  "moments": [
+   "slip"
+  ]
+ },
+ {
+  "id": "marcus-8-48-citadel",
+  "text": "The mind that is free from passions is a citadel; a person has nothing more secure to fly to for refuge.",
+  "cite": "Marcus Aurelius, Meditations 8.48",
+  "tradition": "stoic",
+  "moments": [
+   "urge",
+   "timer"
+  ]
+ },
+ {
+  "id": "marcus-7-29-present",
+  "text": "Wipe out the imagination. Stop the pulling of the strings. Confine yourself to the present.",
+  "cite": "Marcus Aurelius, Meditations 7.29",
+  "tradition": "stoic",
+  "moments": [
+   "urge",
+   "timer"
+  ]
+ },
+ {
+  "id": "epictetus-discourses-2-18-walking",
+  "text": "Every habit and faculty is maintained and increased by the corresponding actions: the habit of walking by walking, the habit of running by running.",
+  "cite": "Epictetus, Discourses 2.18",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit",
+   "streak",
+   "general"
+  ]
+ },
+ {
+  "id": "epictetus-discourses-2-18-reader",
+  "text": "If you would be a good reader, read; if a writer, write.",
+  "cite": "Epictetus, Discourses 2.18",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit"
+  ]
+ },
+ {
+  "id": "epictetus-discourses-2-18-practise",
+  "text": "Whatever you would make habitual, practise it; and if you would not make a thing habitual, do not practise it, but accustom yourself to something else.",
+  "cite": "Epictetus, Discourses 2.18",
+  "tradition": "stoic",
+  "moments": [
+   "urge",
+   "newHabit"
+  ]
+ },
+ {
+  "id": "epictetus-discourses-1-15-fig",
+  "text": "No great thing is created suddenly, any more than a bunch of grapes or a fig. If you tell me you want a fig, I answer that there must be time. Let it first blossom, then bear fruit, then ripen.",
+  "cite": "Epictetus, Discourses 1.15",
+  "tradition": "stoic",
+  "moments": [
+   "streak",
+   "miss",
+   "general"
+  ]
+ },
+ {
+  "id": "epictetus-enchiridion-1-control",
+  "text": "Some things are in our control and others are not.",
+  "cite": "Epictetus, Enchiridion 1",
+  "tradition": "stoic",
+  "moments": [
+   "slip",
+   "general"
+  ]
+ },
+ {
+  "id": "epictetus-enchiridion-5-opinions",
+  "text": "People are disturbed not by things, but by the opinions they hold about things.",
+  "cite": "Epictetus, Enchiridion 5",
+  "tradition": "stoic",
+  "moments": [
+   "miss"
+  ]
+ },
+ {
+  "id": "epictetus-enchiridion-51-now",
+  "text": "From this moment, consider yourself worthy of living as a grown person who is making progress, and let whatever seems best be a law you will not break.",
+  "cite": "Epictetus, Enchiridion 51",
+  "tradition": "stoic",
+  "moments": [
+   "fresh",
+   "morning"
+  ]
+ },
+ {
+  "id": "epictetus-discourses-3-23-say",
+  "text": "First say to yourself what you would be; then do what you have to do.",
+  "cite": "Epictetus, Discourses 3.23",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit",
+   "morning"
+  ]
+ },
+ {
+  "id": "epictetus-enchiridion-33-character",
+  "text": "Prescribe some character and form of conduct for yourself, which you will keep both when alone and in company.",
+  "cite": "Epictetus, Enchiridion 33",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit"
+  ]
+ },
+ {
+  "id": "epictetus-discourses-1-24-difficulties",
+  "text": "It is difficulties that show what people are.",
+  "cite": "Epictetus, Discourses 1.24",
+  "tradition": "stoic",
+  "moments": [
+   "miss",
+   "urge"
+  ]
+ },
+ {
+  "id": "epictetus-enchiridion-10-turn",
+  "text": "With every accident that befalls you, turn to yourself and ask what power you have for putting it to use.",
+  "cite": "Epictetus, Enchiridion 10",
+  "tradition": "stoic",
+  "moments": [
+   "slip",
+   "miss"
+  ]
+ },
+ {
+  "id": "epictetus-enchiridion-29-consider",
+  "text": "In every affair consider what comes before and what follows, and then undertake it.",
+  "cite": "Epictetus, Enchiridion 29",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit"
+  ]
+ },
+ {
+  "id": "epictetus-fragments-master",
+  "text": "No one is free who is not master of himself.",
+  "cite": "Epictetus, Fragments",
+  "tradition": "stoic",
+  "moments": [
+   "urge"
+  ]
+ },
+ {
+  "id": "seneca-letters-1-hour",
+  "text": "Hold every hour in your grasp. Lay hold of today's task, and you will not need to depend so much on tomorrow's.",
+  "cite": "Seneca, Letters 1",
+  "tradition": "stoic",
+  "moments": [
+   "morning",
+   "general"
+  ]
+ },
+ {
+  "id": "seneca-letters-1-postpone",
+  "text": "While we are postponing, life speeds by.",
+  "cite": "Seneca, Letters 1",
+  "tradition": "stoic",
+  "moments": [
+   "morning"
+  ]
+ },
+ {
+  "id": "seneca-letters-1-time",
+  "text": "Nothing is ours except time.",
+  "cite": "Seneca, Letters 1",
+  "tradition": "stoic",
+  "moments": [
+   "general",
+   "timer"
+  ]
+ },
+ {
+  "id": "seneca-anger-3-36-questions",
+  "text": "What bad habit have I cured today? What fault have I resisted? In what respect am I better?",
+  "cite": "Seneca, On Anger 3.36",
+  "tradition": "stoic",
+  "moments": [
+   "evening"
+  ]
+ },
+ {
+  "id": "seneca-anger-3-36-account",
+  "text": "The mind should be called to account every day.",
+  "cite": "Seneca, On Anger 3.36",
+  "tradition": "stoic",
+  "moments": [
+   "evening"
+  ]
+ },
+ {
+  "id": "seneca-letters-20-act",
+  "text": "Philosophy teaches us to act, not to speak.",
+  "cite": "Seneca, Letters 20",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit",
+   "general"
+  ]
+ },
+ {
+  "id": "seneca-letters-2-everywhere",
+  "text": "Everywhere means nowhere.",
+  "cite": "Seneca, Letters 2",
+  "tradition": "stoic",
+  "moments": [
+   "timer",
+   "general"
+  ]
+ },
+ {
+  "id": "seneca-letters-13-imagination",
+  "text": "We suffer more often in imagination than in reality.",
+  "cite": "Seneca, Letters 13",
+  "tradition": "stoic",
+  "moments": [
+   "miss",
+   "urge"
+  ]
+ },
+ {
+  "id": "seneca-letters-71-harbour",
+  "text": "When a person does not know what harbour they are making for, no wind is the right wind.",
+  "cite": "Seneca, Letters 71",
+  "tradition": "stoic",
+  "moments": [
+   "morning",
+   "newHabit"
+  ]
+ },
+ {
+  "id": "seneca-letters-12-sleep",
+  "text": "Let us go to our sleep with joy and gladness; let us say: I have lived.",
+  "cite": "Seneca, Letters 12",
+  "tradition": "stoic",
+  "moments": [
+   "evening",
+   "dayComplete"
+  ]
+ },
+ {
+  "id": "seneca-letters-12-each-day",
+  "text": "Every day ought to be regulated as if it closed the series and rounded out our existence.",
+  "cite": "Seneca, Letters 12",
+  "tradition": "stoic",
+  "moments": [
+   "evening"
+  ]
+ },
+ {
+  "id": "seneca-letters-76-learn",
+  "text": "As long as you live, keep learning how to live.",
+  "cite": "Seneca, Letters 76",
+  "tradition": "stoic",
+  "moments": [
+   "general"
+  ]
+ },
+ {
+  "id": "seneca-shortness-1-waste",
+  "text": "It is not that we have a short time to live, but that we waste much of it.",
+  "cite": "Seneca, On the Shortness of Life 1",
+  "tradition": "stoic",
+  "moments": [
+   "morning",
+   "general"
+  ]
+ },
+ {
+  "id": "seneca-shortness-9-expectancy",
+  "text": "The greatest obstacle to living is expectancy, which hangs upon tomorrow and loses today.",
+  "cite": "Seneca, On the Shortness of Life 9",
+  "tradition": "stoic",
+  "moments": [
+   "morning"
+  ]
+ },
+ {
+  "id": "seneca-letters-2-craves",
+  "text": "It is not the one who has too little who is poor, but the one who craves more.",
+  "cite": "Seneca, Letters 2",
+  "tradition": "stoic",
+  "moments": [
+   "urge"
+  ]
+ },
+ {
+  "id": "seneca-letters-101-begin",
+  "text": "Begin at once to live, and count each separate day as a separate life.",
+  "cite": "Seneca, Letters 101",
+  "tradition": "stoic",
+  "moments": [
+   "fresh",
+   "morning"
+  ]
+ },
+ {
+  "id": "seneca-letters-96-soldiering",
+  "text": "To live is to be a soldier.",
+  "cite": "Seneca, Letters 96",
+  "tradition": "stoic",
+  "moments": [
+   "miss",
+   "morning"
+  ]
+ },
+ {
+  "id": "seneca-letters-16-persist",
+  "text": "Persist, and strengthen yourself daily, until what is now a good impulse becomes a settled habit of good.",
+  "cite": "Seneca, Letters 16",
+  "tradition": "stoic",
+  "moments": [
+   "streak"
+  ]
+ },
+ {
+  "id": "seneca-letters-2-one-thought",
+  "text": "Each day, gather something that will fortify you, and after running over many thoughts, choose one to digest that day.",
+  "cite": "Seneca, Letters 2",
+  "tradition": "stoic",
+  "moments": [
+   "morning",
+   "newHabit"
+  ]
+ },
+ {
+  "id": "seneca-letters-18-rehearse",
+  "text": "Set aside a few days in which you are content with the plainest fare, and ask yourself: is this the condition I feared?",
+  "cite": "Seneca, Letters 18",
+  "tradition": "stoic",
+  "moments": [
+   "urge"
+  ]
+ },
+ {
+  "id": "seneca-letters-13-frighten",
+  "text": "There are more things likely to frighten us than to crush us.",
+  "cite": "Seneca, Letters 13",
+  "tradition": "stoic",
+  "moments": [
+   "miss"
+  ]
+ },
+ {
+  "id": "seneca-providence-5-fire",
+  "text": "Fire tests gold; misfortune tests the brave.",
+  "cite": "Seneca, On Providence 5",
+  "tradition": "stoic",
+  "moments": [
+   "miss",
+   "slip"
+  ]
+ },
+ {
+  "id": "seneca-tranquility-17-rest",
+  "text": "The mind must be given rest; it will rise better and keener after it.",
+  "cite": "Seneca, On Tranquility of Mind 17",
+  "tradition": "stoic",
+  "moments": [
+   "general"
+  ]
+ },
+ {
+  "id": "seneca-letters-7-withdraw",
+  "text": "Withdraw into yourself as far as you can.",
+  "cite": "Seneca, Letters 7",
+  "tradition": "stoic",
+  "moments": [
+   "timer"
+  ]
+ },
+ {
+  "id": "musonius-6-practice",
+  "text": "Virtue is not only theoretical knowledge; it is practical application as well.",
+  "cite": "Musonius Rufus, Lectures 6",
+  "tradition": "stoic",
+  "moments": [
+   "newHabit"
+  ]
+ },
+ {
+  "id": "musonius-fragment-51-labour",
+  "text": "If you do something good with labour, the labour passes and the good remains. If you do something shameful for pleasure, the pleasure passes and the shame remains.",
+  "cite": "Musonius Rufus, Fragment 51",
+  "tradition": "stoic",
+  "moments": [
+   "urge"
+  ]
+ },
+ {
+  "id": "zeno-small-steps",
+  "text": "Well-being is attained by small steps, yet it is no small thing.",
+  "cite": "Zeno of Citium, in Diogenes Laertius 7.26",
+  "tradition": "stoic",
+  "moments": [
+   "minimum",
+   "streak"
+  ]
+ },
+ {
+  "id": "gita-2-47",
+  "text": "You have a right to your actions, but never to their fruits. Let the fruit not be your motive, and do not cling to inaction.",
+  "cite": "Bhagavad Gita 2.47",
+  "tradition": "hindu",
+  "moments": [
+   "general",
+   "morning",
+   "miss"
+  ],
+  "original": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥",
+  "transliteration": "karmaṇy evādhikāras te mā phaleṣu kadācana\nmā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi"
+ },
+ {
+  "id": "gita-2-48",
+  "text": "Steady in yoga, do your work and let go of attachment, the same in success and failure. This evenness is called yoga.",
+  "cite": "Bhagavad Gita 2.48",
+  "tradition": "hindu",
+  "moments": [
+   "miss",
+   "general"
+  ],
+  "original": "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।\nसिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते ॥",
+  "transliteration": "yoga-sthaḥ kuru karmāṇi saṅgaṁ tyaktvā dhanañjaya\nsiddhy-asiddhyoḥ samo bhūtvā samatvaṁ yoga ucyate"
+ },
+ {
+  "id": "gita-2-40",
+  "text": "On this path no effort is ever lost, and no harm is ever done. Even a little of this practice protects from great fear.",
+  "cite": "Bhagavad Gita 2.40",
+  "tradition": "hindu",
+  "moments": [
+   "minimum",
+   "miss"
+  ],
+  "original": "नेहाभिक्रमनाशोऽस्ति प्रत्यवायो न विद्यते ।\nस्वल्पमप्यस्य धर्मस्य त्रायते महतो भयात् ॥",
+  "transliteration": "nehābhikrama-nāśo 'sti pratyavāyo na vidyate\nsvalpam apy asya dharmasya trāyate mahato bhayāt"
+ },
+ {
+  "id": "gita-6-5",
+  "text": "Lift yourself by your own self; do not let yourself sink. The self alone is the friend of the self, and the self alone is its enemy.",
+  "cite": "Bhagavad Gita 6.5",
+  "tradition": "hindu",
+  "moments": [
+   "miss",
+   "slip",
+   "morning"
+  ],
+  "original": "उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।\nआत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥",
+  "transliteration": "uddhared ātmanātmānaṁ nātmānam avasādayet\nātmaiva hy ātmano bandhur ātmaiva ripur ātmanaḥ"
+ },
+ {
+  "id": "gita-6-35",
+  "text": "Without doubt the mind is restless and hard to hold. But it is held by practice and by detachment.",
+  "cite": "Bhagavad Gita 6.35",
+  "tradition": "hindu",
+  "moments": [
+   "streak",
+   "urge",
+   "newHabit"
+  ],
+  "original": "असंशयं महाबाहो मनो दुर्निग्रहं चलम् ।\nअभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते ॥",
+  "transliteration": "asaṁśayaṁ mahā-bāho mano durnigrahaṁ calam\nabhyāsena tu kaunteya vairāgyeṇa ca gṛhyate"
+ },
+ {
+  "id": "gita-6-17",
+  "text": "For one who is measured in eating and rest, measured in effort, measured in sleep and waking, yoga destroys sorrow.",
+  "cite": "Bhagavad Gita 6.17",
+  "tradition": "hindu",
+  "moments": [
+   "general",
+   "evening"
+  ],
+  "original": "युक्ताहारविहारस्य युक्तचेष्टस्य कर्मसु ।\nयुक्तस्वप्नावबोधस्य योगो भवति दुःखहा ॥",
+  "transliteration": "yuktāhāra-vihārasya yukta-ceṣṭasya karmasu\nyukta-svapnāvabodhasya yogo bhavati duḥkha-hā"
+ },
+ {
+  "id": "gita-6-40",
+  "text": "Neither here nor hereafter is there ruin for such a one. No one who does good, my friend, ever comes to a bad end.",
+  "cite": "Bhagavad Gita 6.40",
+  "tradition": "hindu",
+  "moments": [
+   "miss",
+   "slip"
+  ],
+  "original": "पार्थ नैवेह नामुत्र विनाशस्तस्य विद्यते ।\nन हि कल्याणकृत्कश्चिद्दुर्गतिं तात गच्छति ॥",
+  "transliteration": "pārtha naiveha nāmutra vināśas tasya vidyate\nna hi kalyāṇa-kṛt kaścid durgatiṁ tāta gacchati"
+ },
+ {
+  "id": "gita-3-8",
+  "text": "Do the work that is yours to do, for action is better than inaction.",
+  "cite": "Bhagavad Gita 3.8",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "general"
+  ],
+  "original": "नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः ।",
+  "transliteration": "niyataṁ kuru karma tvaṁ karma jyāyo hy akarmaṇaḥ"
+ },
+ {
+  "id": "gita-3-21",
+  "text": "Whatever the best person does, others follow. Whatever standard they set, the world pursues.",
+  "cite": "Bhagavad Gita 3.21",
+  "tradition": "hindu",
+  "moments": [
+   "streak"
+  ],
+  "original": "यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः ।\nस यत्प्रमाणं कुरुते लोकस्तदनुवर्तते ॥",
+  "transliteration": "yad yad ācarati śreṣṭhas tat tad evetaro janaḥ\nsa yat pramāṇaṁ kurute lokas tad anuvartate"
+ },
+ {
+  "id": "gita-3-35",
+  "text": "Better your own path done imperfectly than another's path done well.",
+  "cite": "Bhagavad Gita 3.35",
+  "tradition": "hindu",
+  "moments": [
+   "minimum",
+   "general"
+  ],
+  "original": "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् ।",
+  "transliteration": "śreyān sva-dharmo viguṇaḥ para-dharmāt sv-anuṣṭhitāt"
+ },
+ {
+  "id": "gita-5-10",
+  "text": "One who acts without attachment, offering every action to the Divine, is untouched by wrong, as a lotus leaf is untouched by water.",
+  "cite": "Bhagavad Gita 5.10",
+  "tradition": "hindu",
+  "moments": [
+   "general",
+   "slip"
+  ],
+  "original": "ब्रह्मण्याधाय कर्माणि सङ्गं त्यक्त्वा करोति यः ।\nलिप्यते न स पापेन पद्मपत्रमिवाम्भसा ॥",
+  "transliteration": "brahmaṇy ādhāya karmāṇi saṅgaṁ tyaktvā karoti yaḥ\nlipyate na sa pāpena padma-patram ivāmbhasā"
+ },
+ {
+  "id": "gita-2-14",
+  "text": "The touch of the senses brings cold and heat, pleasure and pain. They come and go and do not last. Bear them patiently.",
+  "cite": "Bhagavad Gita 2.14",
+  "tradition": "hindu",
+  "moments": [
+   "urge",
+   "timer"
+  ],
+  "original": "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः ।\nआगमापायिनोऽनित्यास्तांस्तितिक्षस्व भारत ॥",
+  "transliteration": "mātrā-sparśās tu kaunteya śītoṣṇa-sukha-duḥkha-dāḥ\nāgamāpāyino 'nityās tāṁs titikṣasva bhārata"
+ },
+ {
+  "id": "gita-2-62",
+  "text": "Brooding on objects of the senses, attachment to them grows. From attachment comes desire, and from desire, anger.",
+  "cite": "Bhagavad Gita 2.62",
+  "tradition": "hindu",
+  "moments": [
+   "urge"
+  ],
+  "original": "ध्यायतो विषयान्पुंसः सङ्गस्तेषूपजायते ।\nसङ्गात्सञ्जायते कामः कामात्क्रोधोऽभिजायते ॥",
+  "transliteration": "dhyāyato viṣayān puṁsaḥ saṅgas teṣūpajāyate\nsaṅgāt sañjāyate kāmaḥ kāmāt krodho 'bhijāyate"
+ },
+ {
+  "id": "gita-2-70",
+  "text": "As rivers flow into the ocean, which is ever filled yet stays still, so the one into whom desires flow finds peace, not the one who chases desires.",
+  "cite": "Bhagavad Gita 2.70",
+  "tradition": "hindu",
+  "moments": [
+   "urge",
+   "timer"
+  ],
+  "original": "आपूर्यमाणमचलप्रतिष्ठं समुद्रमापः प्रविशन्ति यद्वत् ।\nतद्वत्कामा यं प्रविशन्ति सर्वे स शान्तिमाप्नोति न कामकामी ॥",
+  "transliteration": "āpūryamāṇam acala-pratiṣṭhaṁ samudram āpaḥ praviśanti yadvat\ntadvat kāmā yaṁ praviśanti sarve sa śāntim āpnoti na kāma-kāmī"
+ },
+ {
+  "id": "gita-6-26",
+  "text": "Wherever the restless, unsteady mind wanders, from there draw it back and rest it in the self.",
+  "cite": "Bhagavad Gita 6.26",
+  "tradition": "hindu",
+  "moments": [
+   "timer",
+   "urge"
+  ],
+  "original": "यतो यतो निश्चरति मनश्चञ्चलमस्थिरम् ।\nततस्ततो नियम्यैतदात्मन्येव वशं नयेत् ॥",
+  "transliteration": "yato yato niścarati manaś cañcalam asthiram\ntatas tato niyamyaitad ātmany eva vaśaṁ nayet"
+ },
+ {
+  "id": "gita-6-19",
+  "text": "As a lamp in a windless place does not flicker: that is the image of the yogi whose mind is disciplined.",
+  "cite": "Bhagavad Gita 6.19",
+  "tradition": "hindu",
+  "moments": [
+   "timer",
+   "dayComplete"
+  ],
+  "original": "यथा दीपो निवातस्थो नेङ्गते सोपमा स्मृता ।\nयोगिनो यतचित्तस्य युञ्जतो योगमात्मनः ॥",
+  "transliteration": "yathā dīpo nivāta-stho neṅgate sopamā smṛtā\nyogino yata-cittasya yuñjato yogam ātmanaḥ"
+ },
+ {
+  "id": "gita-12-9",
+  "text": "If you cannot hold your mind steadily on me, then seek to reach me through the yoga of practice.",
+  "cite": "Bhagavad Gita 12.9",
+  "tradition": "hindu",
+  "moments": [
+   "newHabit",
+   "minimum"
+  ],
+  "original": "अथ चित्तं समाधातुं न शक्नोषि मयि स्थिरम् ।\nअभ्यासयोगेन ततो मामिच्छाप्तुं धनञ्जय ॥",
+  "transliteration": "atha cittaṁ samādhātuṁ na śaknoṣi mayi sthiram\nabhyāsa-yogena tato mām icchāptuṁ dhanañjaya"
+ },
+ {
+  "id": "gita-18-37",
+  "text": "That which is like poison at first and like nectar in the end, born of a clear mind, is called the happiness of goodness.",
+  "cite": "Bhagavad Gita 18.37",
+  "tradition": "hindu",
+  "moments": [
+   "newHabit",
+   "morning",
+   "urge"
+  ],
+  "original": "यत्तदग्रे विषमिव परिणामेऽमृतोपमम् ।\nतत्सुखं सात्त्विकं प्रोक्तमात्मबुद्धिप्रसादजम् ॥",
+  "transliteration": "yat tad agre viṣam iva pariṇāme 'mṛtopamam\ntat sukhaṁ sāttvikaṁ proktam ātma-buddhi-prasāda-jam"
+ },
+ {
+  "id": "gita-18-38",
+  "text": "That which comes from the senses meeting their objects, like nectar at first and like poison in the end, is called the happiness of passion.",
+  "cite": "Bhagavad Gita 18.38",
+  "tradition": "hindu",
+  "moments": [
+   "urge"
+  ],
+  "original": "विषयेन्द्रियसंयोगाद्यत्तदग्रेऽमृतोपमम् ।\nपरिणामे विषमिव तत्सुखं राजसं स्मृतम् ॥",
+  "transliteration": "viṣayendriya-saṁyogād yat tad agre 'mṛtopamam\npariṇāme viṣam iva tat sukhaṁ rājasaṁ smṛtam"
+ },
+ {
+  "id": "gita-2-50",
+  "text": "Yoga is skill in action.",
+  "cite": "Bhagavad Gita 2.50",
+  "tradition": "hindu",
+  "moments": [
+   "timer",
+   "general"
+  ],
+  "original": "योगः कर्मसु कौशलम् ।",
+  "transliteration": "yogaḥ karmasu kauśalam"
+ },
+ {
+  "id": "gita-3-19",
+  "text": "So, without attachment, always do the work that must be done. By working without attachment, one reaches the highest.",
+  "cite": "Bhagavad Gita 3.19",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "general"
+  ],
+  "original": "तस्मादसक्तः सततं कार्यं कर्म समाचर ।\nअसक्तो ह्याचरन्कर्म परमाप्नोति पूरुषः ॥",
+  "transliteration": "tasmād asaktaḥ satataṁ kāryaṁ karma samācara\nasakto hy ācaran karma param āpnoti pūruṣaḥ"
+ },
+ {
+  "id": "gita-6-6",
+  "text": "For one who has conquered the mind, the mind is the best of friends. For one who has not, it behaves like an enemy.",
+  "cite": "Bhagavad Gita 6.6",
+  "tradition": "hindu",
+  "moments": [
+   "urge",
+   "streak"
+  ],
+  "original": "बन्धुरात्मात्मनस्तस्य येनात्मैवात्मना जितः ।\nअनात्मनस्तु शत्रुत्वे वर्तेतात्मैव शत्रुवत् ॥",
+  "transliteration": "bandhur ātmātmanas tasya yenātmaivātmanā jitaḥ\nanātmanas tu śatrutve vartetātmaiva śatru-vat"
+ },
+ {
+  "id": "gita-9-27",
+  "text": "Whatever you do, whatever you eat, whatever you offer or give, whatever discipline you keep, do it as an offering to me.",
+  "cite": "Bhagavad Gita 9.27",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "dayComplete"
+  ],
+  "original": "यत्करोषि यदश्नासि यज्जुहोषि ददासि यत् ।\nयत्तपस्यसि कौन्तेय तत्कुरुष्व मदर्पणम् ॥",
+  "transliteration": "yat karoṣi yad aśnāsi yaj juhoṣi dadāsi yat\nyat tapasyasi kaunteya tat kuruṣva mad-arpaṇam"
+ },
+ {
+  "id": "gita-2-38",
+  "text": "Treat alike pleasure and pain, gain and loss, victory and defeat, and then take up the work.",
+  "cite": "Bhagavad Gita 2.38",
+  "tradition": "hindu",
+  "moments": [
+   "miss"
+  ],
+  "original": "सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ ।\nततो युद्धाय युज्यस्व नैवं पापमवाप्स्यसि ॥",
+  "transliteration": "sukha-duḥkhe same kṛtvā lābhālābhau jayājayau\ntato yuddhāya yujyasva naivaṁ pāpam avāpsyasi"
+ },
+ {
+  "id": "gita-2-3",
+  "text": "Do not yield to weakness; it does not become you. Cast off this small faint-heartedness and arise.",
+  "cite": "Bhagavad Gita 2.3",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "miss"
+  ],
+  "original": "क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते ।\nक्षुद्रं हृदयदौर्बल्यं त्यक्त्वोत्तिष्ठ परन्तप ॥",
+  "transliteration": "klaibyaṁ mā sma gamaḥ pārtha naitat tvayy upapadyate\nkṣudraṁ hṛdaya-daurbalyaṁ tyaktvottiṣṭha parantapa"
+ },
+ {
+  "id": "gita-6-1",
+  "text": "One who does the work that ought to be done, without depending on its fruit, is a true renunciate and a true yogi.",
+  "cite": "Bhagavad Gita 6.1",
+  "tradition": "hindu",
+  "moments": [
+   "general"
+  ],
+  "original": "अनाश्रितः कर्मफलं कार्यं कर्म करोति यः ।\nस संन्यासी च योगी च न निरग्निर्न चाक्रियः ॥",
+  "transliteration": "anāśritaḥ karma-phalaṁ kāryaṁ karma karoti yaḥ\nsa sannyāsī ca yogī ca na niragnir na cākriyaḥ"
+ },
+ {
+  "id": "gita-6-23",
+  "text": "This yoga should be practised with determination and a mind that does not lose heart.",
+  "cite": "Bhagavad Gita 6.23",
+  "tradition": "hindu",
+  "moments": [
+   "miss",
+   "streak"
+  ],
+  "original": "स निश्चयेन योक्तव्यो योगोऽनिर्विण्णचेतसा ।",
+  "transliteration": "sa niścayena yoktavyo yogo 'nirviṇṇa-cetasā"
+ },
+ {
+  "id": "gita-6-25",
+  "text": "Little by little, let one become still, with the intellect held by steadiness.",
+  "cite": "Bhagavad Gita 6.25",
+  "tradition": "hindu",
+  "moments": [
+   "minimum",
+   "timer"
+  ],
+  "original": "शनैः शनैरुपरमेद्बुद्ध्या धृतिगृहीतया ।",
+  "transliteration": "śanaiḥ śanair uparamed buddhyā dhṛti-gṛhītayā"
+ },
+ {
+  "id": "gita-3-37",
+  "text": "It is desire, it is anger, born of restless passion, all-devouring. Know it as the enemy here.",
+  "cite": "Bhagavad Gita 3.37",
+  "tradition": "hindu",
+  "moments": [
+   "urge"
+  ],
+  "original": "काम एष क्रोध एष रजोगुणसमुद्भवः ।\nमहाशनो महापाप्मा विद्ध्येनमिह वैरिणम् ॥",
+  "transliteration": "kāma eṣa krodha eṣa rajo-guṇa-samudbhavaḥ\nmahāśano mahā-pāpmā viddhy enam iha vairiṇam"
+ },
+ {
+  "id": "gita-16-21",
+  "text": "Desire, anger and greed are the threefold gate to the ruin of the self. Therefore let them go.",
+  "cite": "Bhagavad Gita 16.21",
+  "tradition": "hindu",
+  "moments": [
+   "urge"
+  ],
+  "original": "त्रिविधं नरकस्येदं द्वारं नाशनमात्मनः ।\nकामः क्रोधस्तथा लोभस्तस्मादेतत्त्रयं त्यजेत् ॥",
+  "transliteration": "tri-vidhaṁ narakasyedaṁ dvāraṁ nāśanam ātmanaḥ\nkāmaḥ krodhas tathā lobhas tasmād etat trayaṁ tyajet"
+ },
+ {
+  "id": "gita-17-16",
+  "text": "Serenity of mind, gentleness, silence, self-control and purity of heart: this is called the discipline of the mind.",
+  "cite": "Bhagavad Gita 17.16",
+  "tradition": "hindu",
+  "moments": [
+   "evening",
+   "timer"
+  ],
+  "original": "मनःप्रसादः सौम्यत्वं मौनमात्मविनिग्रहः ।\nभावसंशुद्धिरित्येतत्तपो मानसमुच्यते ॥",
+  "transliteration": "manaḥ-prasādaḥ saumyatvaṁ maunam ātma-vinigrahaḥ\nbhāva-saṁśuddhir ity etat tapo mānasam ucyate"
+ },
+ {
+  "id": "gita-9-26",
+  "text": "Whoever offers me with devotion a leaf, a flower, a fruit or water, that offering of love I accept.",
+  "cite": "Bhagavad Gita 9.26",
+  "tradition": "hindu",
+  "moments": [
+   "minimum"
+  ],
+  "original": "पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति ।\nतदहं भक्त्युपहृतमश्नामि प्रयतात्मनः ॥",
+  "transliteration": "patraṁ puṣpaṁ phalaṁ toyaṁ yo me bhaktyā prayacchati\ntad ahaṁ bhakty-upahṛtam aśnāmi prayatātmanaḥ"
+ },
+ {
+  "id": "gita-18-48",
+  "text": "Do not abandon the work that is yours, even if it has flaws. Every undertaking is clouded by some flaw, as fire is by smoke.",
+  "cite": "Bhagavad Gita 18.48",
+  "tradition": "hindu",
+  "moments": [
+   "miss",
+   "minimum"
+  ],
+  "original": "सहजं कर्म कौन्तेय सदोषमपि न त्यजेत् ।\nसर्वारम्भा हि दोषेण धूमेनाग्निरिवावृताः ॥",
+  "transliteration": "saha-jaṁ karma kaunteya sa-doṣam api na tyajet\nsarvārambhā hi doṣeṇa dhūmenāgnir ivāvṛtāḥ"
+ },
+ {
+  "id": "gita-12-12",
+  "text": "Better than practice is knowledge; better than knowledge is meditation; better than meditation is letting go of the fruits of action. Peace follows at once.",
+  "cite": "Bhagavad Gita 12.12",
+  "tradition": "hindu",
+  "moments": [
+   "general"
+  ]
+ },
+ {
+  "id": "katha-1-3-14",
+  "text": "Arise, awake, and learn by going to the wise. Sharp as the edge of a razor and hard to cross is that path, say the sages.",
+  "cite": "Katha Upanishad 1.3.14",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "fresh"
+  ],
+  "original": "उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत ।\nक्षुरस्य धारा निशिता दुरत्यया दुर्गं पथस्तत्कवयो वदन्ति ॥",
+  "transliteration": "uttiṣṭhata jāgrata prāpya varān nibodhata\nkṣurasya dhārā niśitā duratyayā durgaṁ pathas tat kavayo vadanti"
+ },
+ {
+  "id": "katha-1-2-2",
+  "text": "The good and the pleasant both come to a person. The wise choose the good over the pleasant; the foolish choose the pleasant.",
+  "cite": "Katha Upanishad 1.2.2",
+  "tradition": "hindu",
+  "moments": [
+   "urge",
+   "newHabit"
+  ],
+  "original": "श्रेयश्च प्रेयश्च मनुष्यमेतस्तौ सम्परीत्य विविनक्ति धीरः ।\nश्रेयो हि धीरोऽभि प्रेयसो वृणीते प्रेयो मन्दो योगक्षेमाद्वृणीते ॥",
+  "transliteration": "śreyaś ca preyaś ca manuṣyam etas tau samparītya vivinakti dhīraḥ\nśreyo hi dhīro 'bhi preyaso vṛṇīte preyo mando yoga-kṣemād vṛṇīte"
+ },
+ {
+  "id": "katha-1-3-3",
+  "text": "Know the self as the rider in a chariot and the body as the chariot. Know the intellect as the charioteer and the mind as the reins.",
+  "cite": "Katha Upanishad 1.3.3",
+  "tradition": "hindu",
+  "moments": [
+   "urge",
+   "general"
+  ],
+  "original": "आत्मानं रथिनं विद्धि शरीरं रथमेव तु ।\nबुद्धिं तु सारथिं विद्धि मनः प्रग्रहमेव च ॥",
+  "transliteration": "ātmānaṁ rathinaṁ viddhi śarīraṁ ratham eva tu\nbuddhiṁ tu sārathiṁ viddhi manaḥ pragraham eva ca"
+ },
+ {
+  "id": "brihadaranyaka-4-4-5",
+  "text": "As a person acts, so they become. As is their desire, so is their resolve; as is their resolve, so is their deed; and whatever deed they do, that they become.",
+  "cite": "Brihadaranyaka Upanishad 4.4.5",
+  "tradition": "hindu",
+  "moments": [
+   "newHabit",
+   "streak"
+  ],
+  "original": "यथाकारी यथाचारी तथा भवति ।",
+  "transliteration": "yathākārī yathācārī tathā bhavati"
+ },
+ {
+  "id": "brihadaranyaka-1-3-28",
+  "text": "Lead me from the unreal to the real. Lead me from darkness to light. Lead me from death to immortality.",
+  "cite": "Brihadaranyaka Upanishad 1.3.28",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "dayComplete"
+  ],
+  "original": "असतो मा सद्गमय ।\nतमसो मा ज्योतिर्गमय ।\nमृत्योर्माऽमृतं गमय ॥",
+  "transliteration": "asato mā sad gamaya\ntamaso mā jyotir gamaya\nmṛtyor māmṛtaṁ gamaya"
+ },
+ {
+  "id": "mundaka-3-1-6",
+  "text": "Truth alone triumphs.",
+  "cite": "Mundaka Upanishad 3.1.6",
+  "tradition": "hindu",
+  "moments": [
+   "general"
+  ],
+  "original": "सत्यमेव जयते ।",
+  "transliteration": "satyam eva jayate"
+ },
+ {
+  "id": "isha-2",
+  "text": "Doing your work here, wish to live a hundred years.",
+  "cite": "Isha Upanishad 2",
+  "tradition": "hindu",
+  "moments": [
+   "morning"
+  ],
+  "original": "कुर्वन्नेवेह कर्माणि जिजीविषेच्छतं समाः ।",
+  "transliteration": "kurvann eveha karmāṇi jijīviṣec chataṁ samāḥ"
+ },
+ {
+  "id": "taittiriya-1-11-1",
+  "text": "Speak the truth. Walk in dharma. Do not neglect your own study.",
+  "cite": "Taittiriya Upanishad 1.11.1",
+  "tradition": "hindu",
+  "moments": [
+   "newHabit",
+   "general"
+  ],
+  "original": "सत्यं वद । धर्मं चर । स्वाध्यायान्मा प्रमदः ।",
+  "transliteration": "satyaṁ vada, dharmaṁ cara, svādhyāyān mā pramadaḥ"
+ },
+ {
+  "id": "yajurveda-34-1",
+  "text": "May my mind be of auspicious resolve.",
+  "cite": "Shukla Yajurveda 34.1",
+  "tradition": "hindu",
+  "moments": [
+   "morning"
+  ],
+  "original": "तन्मे मनः शिवसङ्कल्पमस्तु ।",
+  "transliteration": "tan me manaḥ śiva-saṅkalpam astu"
+ },
+ {
+  "id": "rigveda-1-89-1",
+  "text": "Let noble thoughts come to us from every side.",
+  "cite": "Rig Veda 1.89.1",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "general"
+  ],
+  "original": "आ नो भद्राः क्रतवो यन्तु विश्वतः ।",
+  "transliteration": "ā no bhadrāḥ kratavo yantu viśvataḥ"
+ },
+ {
+  "id": "yogasutra-1-12",
+  "text": "The movements of the mind are stilled by practice and non-attachment.",
+  "cite": "Yoga Sutras 1.12",
+  "tradition": "hindu",
+  "moments": [
+   "streak",
+   "timer"
+  ],
+  "original": "अभ्यासवैराग्याभ्यां तन्निरोधः ।",
+  "transliteration": "abhyāsa-vairāgyābhyāṁ tan-nirodhaḥ"
+ },
+ {
+  "id": "yogasutra-1-13",
+  "text": "Practice is the effort to stay steady in that stillness.",
+  "cite": "Yoga Sutras 1.13",
+  "tradition": "hindu",
+  "moments": [
+   "timer"
+  ],
+  "original": "तत्र स्थितौ यत्नोऽभ्यासः ।",
+  "transliteration": "tatra sthitau yatno 'bhyāsaḥ"
+ },
+ {
+  "id": "yogasutra-1-14",
+  "text": "Practice becomes firmly grounded when it is kept up for a long time, without break, and with devotion.",
+  "cite": "Yoga Sutras 1.14",
+  "tradition": "hindu",
+  "moments": [
+   "streak",
+   "newHabit"
+  ],
+  "original": "स तु दीर्घकालनैरन्तर्यसत्कारासेवितो दृढभूमिः ।",
+  "transliteration": "sa tu dīrgha-kāla-nairantarya-satkārāsevito dṛḍha-bhūmiḥ"
+ },
+ {
+  "id": "yogasutra-2-1",
+  "text": "Discipline, self-study and surrender to the Divine make up the yoga of action.",
+  "cite": "Yoga Sutras 2.1",
+  "tradition": "hindu",
+  "moments": [
+   "general"
+  ],
+  "original": "तपःस्वाध्यायेश्वरप्रणिधानानि क्रियायोगः ।",
+  "transliteration": "tapaḥ-svādhyāyeśvara-praṇidhānāni kriyā-yogaḥ"
+ },
+ {
+  "id": "yogasutra-2-33",
+  "text": "When disturbed by unwholesome thoughts, cultivate their opposite.",
+  "cite": "Yoga Sutras 2.33",
+  "tradition": "hindu",
+  "moments": [
+   "urge",
+   "slip"
+  ],
+  "original": "वितर्कबाधने प्रतिपक्षभावनम् ।",
+  "transliteration": "vitarka-bādhane pratipakṣa-bhāvanam"
+ },
+ {
+  "id": "yogasutra-2-46",
+  "text": "Posture should be steady and easeful.",
+  "cite": "Yoga Sutras 2.46",
+  "tradition": "hindu",
+  "moments": [
+   "timer"
+  ],
+  "original": "स्थिरसुखमासनम् ।",
+  "transliteration": "sthira-sukham āsanam"
+ },
+ {
+  "id": "vivekananda-arise",
+  "text": "Arise, awake, and stop not till the goal is reached.",
+  "cite": "Swami Vivekananda, Lectures from Colombo to Almora",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "fresh"
+  ]
+ },
+ {
+  "id": "vivekananda-one-idea",
+  "text": "Take up one idea. Make that one idea your life; think of it, dream of it, live on that idea. This is the way to success.",
+  "cite": "Swami Vivekananda, Raja Yoga",
+  "tradition": "hindu",
+  "moments": [
+   "newHabit",
+   "morning"
+  ]
+ },
+ {
+  "id": "vivekananda-gymnasium",
+  "text": "The world is a grand moral gymnasium, where we all have to take exercise so as to become stronger and stronger.",
+  "cite": "Swami Vivekananda, Karma Yoga",
+  "tradition": "hindu",
+  "moments": [
+   "miss",
+   "morning"
+  ]
+ },
+ {
+  "id": "vivekananda-thoughts",
+  "text": "We are what our thoughts have made us; so take care about what you think. Words are secondary. Thoughts live; they travel far.",
+  "cite": "Swami Vivekananda, Complete Works, Vol. 7",
+  "tradition": "hindu",
+  "moments": [
+   "newHabit",
+   "general"
+  ]
+ },
+ {
+  "id": "manusmriti-8-15",
+  "text": "Dharma protects those who protect it.",
+  "cite": "Manusmriti 8.15",
+  "tradition": "hindu",
+  "moments": [
+   "streak"
+  ],
+  "original": "धर्मो रक्षति रक्षितः ।",
+  "transliteration": "dharmo rakṣati rakṣitaḥ"
+ },
+ {
+  "id": "hitopadesha-udyamena",
+  "text": "Tasks are accomplished by effort, not by wishing. Deer do not walk into the mouth of a sleeping lion.",
+  "cite": "Hitopadesha",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "newHabit"
+  ],
+  "original": "उद्यमेन हि सिध्यन्ति कार्याणि न मनोरथैः ।\nन हि सुप्तस्य सिंहस्य प्रविशन्ति मुखे मृगाः ॥",
+  "transliteration": "udyamena hi sidhyanti kāryāṇi na manorathaiḥ\nna hi suptasya siṁhasya praviśanti mukhe mṛgāḥ"
+ },
+ {
+  "id": "subhashita-jalabindu",
+  "text": "Drop by drop, the pot is filled. So it is with all learning, with virtue and with wealth.",
+  "cite": "Sanskrit subhāṣita",
+  "tradition": "hindu",
+  "moments": [
+   "minimum",
+   "streak"
+  ],
+  "original": "जलबिन्दुनिपातेन क्रमशः पूर्यते घटः ।\nस हेतुः सर्वविद्यानां धर्मस्य च धनस्य च ॥",
+  "transliteration": "jala-bindu-nipātena kramaśaḥ pūryate ghaṭaḥ\nsa hetuḥ sarva-vidyānāṁ dharmasya ca dhanasya ca"
+ },
+ {
+  "id": "kabir-kal-kare",
+  "text": "What you would do tomorrow, do today; what you would do today, do now. The moment may pass, and when will you do it then?",
+  "cite": "Kabir, Dohe",
+  "tradition": "hindu",
+  "moments": [
+   "morning",
+   "general"
+  ],
+  "original": "काल करे सो आज कर, आज करे सो अब ।\nपल में परलय होएगी, बहुरि करेगा कब ॥",
+  "transliteration": "kāl kare so āj kar, āj kare so ab\npal meṁ paralay hoegī, bahuri karegā kab"
+ },
+ {
+  "id": "kabir-dheere",
+  "text": "Slowly, slowly, O mind; everything happens in its own time. The gardener may pour a hundred pots of water, but fruit comes only in its season.",
+  "cite": "Kabir, Dohe",
+  "tradition": "hindu",
+  "moments": [
+   "streak",
+   "miss"
+  ],
+  "original": "धीरे-धीरे रे मना, धीरे सब कुछ होय ।\nमाली सींचे सौ घड़ा, ऋतु आए फल होय ॥",
+  "transliteration": "dhīre-dhīre re manā, dhīre sab kuch hoy\nmālī sīṁce sau ghaṛā, ṛtu āe phal hoy"
+ },
+ {
+  "id": "bhartrhari-prarabhyate",
+  "text": "The lowest never begin, for fear of obstacles. The middling begin, but stop when obstacles come. The best, struck down by obstacles again and again, never give up what they have begun.",
+  "cite": "Bhartṛhari, Nītiśataka",
+  "tradition": "hindu",
+  "moments": [
+   "miss",
+   "streak"
+  ],
+  "original": "प्रारभ्यते न खलु विघ्नभयेन नीचैः\nप्रारभ्य विघ्नविहता विरमन्ति मध्याः ।\nविघ्नैः पुनः पुनरपि प्रतिहन्यमानाः\nप्रारब्धमुत्तमजना न परित्यजन्ति ॥",
+  "transliteration": "prārabhyate na khalu vighna-bhayena nīcaiḥ\nprārabhya vighna-vihatā viramanti madhyāḥ\nvighnaiḥ punaḥ punar api pratihanyamānāḥ\nprārabdham uttama-janā na parityajanti"
+ }
+]
